@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 26.09.2016
- * Time: 2:26
- */
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Hello new shablon BASIC !</h1>
+
+
+</body>
+</html>
