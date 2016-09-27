@@ -1,3 +1,13 @@
+<?php
+//$this->title = 'Одна статья'; // добавление title в вид файле страницы (1-й вариант)
+//?>
+
+<?php $this->beginBlock('block1'); ?>
+<h2>Заголовок Блока 1</h2>
+<?php $this->endBlock(); ?>
+
+
+
 <h1>Show Action</h1>
 
 <button class="btn btn-success" id="btn">Click me...</button><br /><br />
@@ -18,7 +28,7 @@ $js = <<<JS
         $.ajax({
         url: 'index.php?r=post/index',
         data: {test: '123'},
-        type: 'GET',
+        type: 'POST',
         succsess: function(res){
             console.log(res);
         },
