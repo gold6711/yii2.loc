@@ -11,16 +11,17 @@ use Yii;
 
 class PostController extends AppController
 {
-    public function actionTest(){
+    public $layout = 'basic';  // устанавливаем шаблон basic для PostController (Index, Show ...)
 
-        $names = ['Ivanov', 'Petrov', 'Sidorov'];
-
-//        print_r($names);   //пробная распечатка массива
-//        var_dump($names);  //пробная распечатка массива
-//        var_dump(Yii::$app);
-//        $this->debug(Yii::$app); // в метод debug() в AppController необход добв второй параметр - true ($arr, true)
-
-//        $this->debug($names);
-       return $this->render('test');
+    public function actionIndex(){
+        if(Yii::$app->request->isAjax) {
+            debug($_GET);
+            return 'test';
+        }
+        return $this->render('test');
+    }
+    public function actionShow(){
+       // $this->layout = 'basic'; // устанавливаем отдельн шаблон basic для данного экшена
+        return $this->render('show');
     }
 }

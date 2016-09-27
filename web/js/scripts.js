@@ -1,3 +1,3 @@
-/**
- * Created by Admin on 26.09.2016.
- */
+//alert('Hello');
+
+$('.container').append('<p>SHOW MUST GO ON</p>');

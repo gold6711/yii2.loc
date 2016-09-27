@@ -1,7 +1,34 @@
+<h1>Show Action</h1>
+
+<button class="btn btn-success" id="btn">Click me...</button><br /><br />
+
+<?php //$this->registerJsFile('@web/js/scripts.js', ['depends' => 'yii\web\YiiAsset']) ?>
+
+<?php// $this->registerJs("$('.container').append('<p>SHOW MUST GO ON</p>');", \yii\web\View::POS_LOAD)
+
+/* первый метод (закоментирован) = передача пути к файлу script.js и зависимости данного кода от библ jQuery */
+/* во втором методе мы подключаем данный код на прямю в файле (исп когда кода*/ ?>
+
+<?php// $this->registerCss('.container{background : #ccc;}' )?>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 26.09.2016
- * Time: 12:19
- */
+
+$js = <<<JS
+    $('#btn').on('clik', function(){
+        $.ajax({
+        url: 'index.php?r=post/index',
+        data: {test: '123'},
+        type: 'GET',
+        succsess: function(res){
+            console.log(res);
+        },
+        error: function(){
+            alert('Error!');
+        }
+        });
+    });
+JS;
+
+$this->registerJs($js);
+
+?>

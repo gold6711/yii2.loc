@@ -16,7 +16,6 @@ class AppController extends Controller
         echo '<pre>' . print_r($arr, true) . '</pre>';
     }
 }
-
 /*функция перенесена в файл ФУНКЦИЙ functions.php (файл общих функций)*/
 //function debug($arr){
 //    echo '<pre>' . print_r($arr, true) . '</pre>';

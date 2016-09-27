@@ -20,4 +20,8 @@ class MyController extends AppController
        // return $this->render('index', ['hello' => $hi, 'names' => $names]);
         return $this->render('index', compact('hi', 'names', 'id')); // аналогичн вывод
     }
+    public function actionBlogPost(){
+        // my/blog-post
+        return 'Blog Post';
+    }
 }
