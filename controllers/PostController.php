@@ -28,6 +28,16 @@ class PostController extends AppController
             return 'test';
         }
         $model = new TestForm();
+        if($model->load(Yii::$app->request->post()) ){
+//            debug($model);
+//            die;
+            if($model->validate() ){
+                Yii::$app->session->setFlash('success', 'Данные приняты');
+                return $this->refresh(); // перезапросить текущую страницу (избежать запроса на повтрную отправку данных)
+            }else{
+                Yii::$app->session->setFlash('error', 'Сообщение об ошибке');
+            }
+        }
 
 
         $this->view->title = 'Все Статьи';

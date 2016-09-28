@@ -31,7 +31,7 @@ class TestForm extends Model
 //            ['name', 'string', 'max' => 5, 'tooLong' => 'Много'],
             ['name', 'string', 'length' => [2, 5], 'tooShort' => 'Wrong'],
             ['name', 'myRule'],// данная валидация будет работать только НА СЕРВЕРЕ
-            ['tet', 'trim'], // убирает лишние пробелы
+            ['text', 'trim'], // убирает лишние пробелы
         ];
     }
     public function myRule($attrs){

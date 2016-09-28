@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset', // добавление в середину Bootstrap...Asset строки "Plugin"
+                                              // включит Bootstrap.js и Bootstrap.css библиотеки
     ];
 }
