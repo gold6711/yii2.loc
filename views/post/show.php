@@ -3,12 +3,12 @@
 //?>
 
 <?php $this->beginBlock('block1'); ?>
-<h2>Заголовок Блока 1</h2>
+    <h2>Заголовок Блока 1</h2>
 <?php $this->endBlock(); ?>
 
-
-
 <h1>Show Action</h1>
+
+<?php debug($cats) ?>
 
 <button class="btn btn-success" id="btn">Click me...</button><br /><br />
 
