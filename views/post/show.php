@@ -26,7 +26,7 @@
 $js = <<<JS
     $('#btn').on('clik', function(){
         $.ajax({
-        url: 'index.php?r=post/index',
+        url: '/index.php?r=post/index',
         data: {test: '123'},
         type: 'POST',
         succsess: function(res){

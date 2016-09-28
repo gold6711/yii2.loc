@@ -6,7 +6,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!doctype html>
-<html lang="en">
+    <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@ AppAsset::register($this);
             </ul>
 
             <?php if( isset($this->blocks['block1']) ): ?>
-                <?php echo $this->blocks['block1']; ?>
+                <?= $this->blocks['block1'] ?>
             <?php endif; ?>
 
             <?= $content ?>

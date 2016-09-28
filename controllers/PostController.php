@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use Yii;
+use app\models\TestForm;
 
 class PostController extends AppController
 {
@@ -26,8 +27,11 @@ class PostController extends AppController
             //debug($_POST);
             return 'test';
         }
+        $model = new TestForm();
+
+
         $this->view->title = 'Все Статьи';
-        return $this->render('test');
+        return $this->render('test', compact('model'));
     }
     public function actionShow(){
        // $this->layout = 'basic'; // устанавливаем отдельн шаблон basic для данного экшена
