@@ -7,14 +7,14 @@
  */
 
 namespace app\models;
-use yii\base\Model;
+use yii\db\ActiveRecord;
 
 
-class TestForm extends Model
+class TestForm extends ActiveRecord
 {
-    public $name;
-    public $email;
-    public $text;
+    public static function tableName() {
+        return 'posts';
+    }
 
     public function attributeLabels(){
         return [
@@ -23,20 +23,12 @@ class TestForm extends Model
             'text' => 'Текст сообщения',
         ];
     }
-    /* ВАЛИДАЦИЯ*/
+
     public function rules(){
         return [
-            [['name', 'email'], 'required'], // 'message' => 'Поле Обязательное' - можно указать сообщение(не для всех полей)
-            ['email', 'email'],
-            ['name', 'string', 'length' => [2, 5], 'tooShort' => 'Wrong'],
-            ['name', 'myRule'],// данная валидация будет работать только НА СЕРВЕРЕ
-            ['text', 'trim'], // убирает лишние пробелы
-        ];
+            [['name', 'text'], 'required'], // ВАЖНО ! - не описанный(не упомянутый) в правилах валидации атрибут
+            ['email', 'email'],            // НЕ БУДЕТ ЗАГРУЖЕН в Автоматическом (не в ручн) режиме загрузки
+        ];                                // можно использовать правило 'safe' (не на что не влияет) делает поле безопастным
     }
-    public function myRule($attrs){
-        if (!in_array($this->$attrs, ['Hello', 'World'])) {
-            $this->addError($attrs, 'Имя должно быть либо "Hello" или "World"!');
-            //https://nix-tips.ru/yii2-api-guides/guide-ru-input-validation.html
-        }
-    }
+
 }

@@ -29,8 +29,14 @@ class PostController extends AppController
             return 'test';
         }
         $model = new TestForm();
+//        $model->name = 'Автор';
+//        $model->email = 'mail@mail.com';
+//        $model->text = 'Текст Сообщения';
+//        $model->save(); //метод save() автоматич запускает валидацию (если она не нужна ставим save(false) )
+
+
         if($model->load(Yii::$app->request->post()) ){
-            if($model->validate() ){
+            if($model->save() ){ // меняем validate() на save(), котор автоматич запускает валидацию
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
             }else{
