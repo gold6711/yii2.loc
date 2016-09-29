@@ -9,12 +9,13 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 
-class Category extends ActiveRecord
+class Product extends ActiveRecord
 {
     public static function tableName(){
-        return 'categories'; //
+        return 'products'; //
     }
-    public function getProducts() {
-        return $this->hasMany(Product::className(), ['parent' => 'id']);
+
+    public function getCateories() {
+        return $this->hasOne(Category::className(), ['id' => 'parent']);
     }
 }
