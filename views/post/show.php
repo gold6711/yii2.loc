@@ -3,11 +3,14 @@
 //?>
 
 <?php $this->beginBlock('block1'); ?>
-    <h2>Заголовок Блока 1</h2>
+    <h2><b>Заголовок Блока 1</b></h2>
 <?php $this->endBlock(); ?>
 
 <h1>Show Action</h1>
-
+<?php //foreach($cats as $cat) {
+//    echo $cat->title . '<br>';
+//}
+//?>
 <?php debug($cats) ?>
 
 <button class="btn btn-success" id="btn">Click me...</button><br /><br />
