@@ -14,7 +14,7 @@ use yii\db\ActiveRecord;
 class TestForm extends ActiveRecord
 {
 //    public $name;     //Если мы указываем extends = Model нам необходио указывать свойства $name,$email,$text
-//    public $email;   //Если мы работаем с ActiveRecord - свойства указывать не обязательно они будут полуены из таблицы автоматич
+//    public $email;   //Если мы работаем с ActiveRecord - свойства указывать не обязательно они будут получены из таблицы автоматич
 //    public $text;
 
     public function attributeLabels(){

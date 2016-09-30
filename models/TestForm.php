@@ -26,9 +26,9 @@ class TestForm extends ActiveRecord
 
     public function rules(){
         return [
-            [['name', 'text'], 'required'], // ВАЖНО ! - не описанный(не упомянутый) в правилах валидации атрибут
-            ['email', 'email'],            // НЕ БУДЕТ ЗАГРУЖЕН в Автоматическом (не в ручн) режиме загрузки
-        ];                                // можно использовать правило 'safe' (не на что не влияет) делает поле безопастным
+            [['name', 'text'], 'required'],
+            ['email', 'email'],
+        ];
     }
 
 }

@@ -32,9 +32,20 @@ class PostController extends AppController
         $post = TestForm::findOne(6);
         $post->delete();
 
+//        TestForm::deleteAll(['>', 'id', 3]); //удалить все где id>3
+//        $post->email = '1122@33.ru';
+//        $post->save();
+//        debug($post);
+
         $model = new TestForm();
+//        $model->name = 'Автор';
+//        $model->email = 'mail@mail.com';
+//        $model->text = 'Текст Сообщения';
+//        $model->save(); //метод save() автоматич запускает валидацию (если она не нужна ставим save(false) )
+
+
         if($model->load(Yii::$app->request->post()) ){
-            if($model->save() ){
+            if($model->save() ){ // меняем validate() на save(), котор автоматич запускает валидацию
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
             }else{
