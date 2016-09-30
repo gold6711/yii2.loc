@@ -29,8 +29,8 @@ class PostController extends AppController
             return 'test';
         }
 
-        $post = TestForm::findOne(6);
-        $post->delete();
+//        $post = TestForm::findOne(6);
+//        $post->delete();
 
         $model = new TestForm();
         if($model->load(Yii::$app->request->post()) ){

@@ -22,6 +22,7 @@ AppAsset::register($this);
                 <li role="presentation" class="active"><?= Html::a('Главная', '/web/')?></li>
                 <li role="presentation"><?= Html::a('Статьи', ['post/index'])?></li>
                 <li role="presentation"><?= Html::a('Статья', ['post/show'])?></li>
+                <li role="presentation"><?= Html::a('Моя страница', ['my/index'])?></li>
             </ul>
 
             <?php if( isset($this->blocks['block1']) ): ?>
