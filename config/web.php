@@ -42,12 +42,17 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
 
-//        'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => false,
-//            'rules' => [
-//            ],
-//        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false, // редко используется
+//            'suffix' => '.html', // можно добавлять при необходимости - удобно)
+            'rules' => [
+                '<action:(about|contact|login)>' => 'site/<action>', // можно написать <action:\w+> = любой action (см рег выраж)
+//                'contact' => 'site/contact',            // можно проставить правила маршрутов для urlManager в ручн для каждого
+//                'login' => 'site/login',               // можно - используя рег выражения,
+            ],                                          // все это испол в Nav::widget (views/layouts/main.php)
+        ],
 
     ],
     'params' => $params,
