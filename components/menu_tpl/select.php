@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 04.10.2016
- * Time: 0:19
- */
+<li>
+    <a href="">
+        <?= $category['name'] ?>
+        <?php if(isset($category['childs']) ): ?>
+            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+        <?php endif; ?>
+    </a>
+    <?php if(isset($category['childs']) ): ?>
+        <ul>
+            <?= $this->getMenuHtml($category['childs']) ?>
+        </ul>
+    <?php endif; ?>
+</li>
