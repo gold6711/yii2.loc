@@ -892,6 +892,8 @@ h2.title {
 .productinfo p{
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  line-height: 1.2em;
+  overflow: hidden;
   font-weight: 400;
   color: #696763;
 }
