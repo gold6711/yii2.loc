@@ -13,9 +13,10 @@ use Yii;
 
 
 class ProductController extends AppController {
-    public function actionView($id){
-        $id = Yii::$app->request->get('id');
-        $product = Product::findOne($id);
+
+    public function actionView(){              // можно получить id так -> public function actionView($id)
+        $id = Yii::$app->request->get('id');  // id в этом случае получается из массива routs->'rules' (conf/web.php)
+        $product = Product::findOne($id);     //  'rules' => [    'category/<id:\d+>' (less 13 - 03:00)
         if(empty($product))
             throw new \yii\web\HttpException(404, 'Такого товара нет');
         //$product = Product::find()->with('category')->where(['id' => $id])->limit(1)->one(); // возможны оба варианта
