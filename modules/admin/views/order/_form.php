@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use bootui\datetimepicker\Datepicker;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Order */
 /* @var $form yii\widgets\ActiveForm */
@@ -12,15 +12,23 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'created_at')->widget(Datepicker::className(), [
+        'options' => ['class' => 'form-control'],
+        'addon' => ['prepend' => 'Выбирете дату'],
+        'format' => 'YYYY-MM-DD',
+    ]); ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->widget(Datepicker::className(), [
+        'options' => ['class' => 'form-control'],
+        'addon' => ['prepend' => 'Выбирете дату'],
+        'format' => 'YYYY-MM-DD',
+    ]); ?>
 
     <?= $form->field($model, 'qty')->textInput() ?>
 
     <?= $form->field($model, 'sum')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ '0' => 'Активен', '1' => 'Завершен', ] /*['prompt' => '']*/) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

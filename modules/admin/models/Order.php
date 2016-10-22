@@ -23,16 +23,18 @@ class Order extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName(){
         return 'order';
+    }
+
+    public function getOrderItems(){
+        return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules(){
         return [
             [['created_at', 'updated_at', 'qty', 'sum', 'name', 'email', 'phone', 'address'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
@@ -46,8 +48,7 @@ class Order extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels(){
         return [
             'id' => '№ Заказа',
             'created_at' => 'Дата создания',
