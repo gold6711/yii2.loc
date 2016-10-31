@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-jui": "~2.0.0",
         "2amigos/yii2-date-time-picker-widget": "~1.0",
-        "moonlandsoft/bootui-datetimepicker": "*"
+        "moonlandsoft/bootui-datetimepicker": "*",
+        "mihaildev/yii2-ckeditor": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
