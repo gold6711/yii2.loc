@@ -22,7 +22,8 @@
         "2amigos/yii2-date-time-picker-widget": "~1.0",
         "moonlandsoft/bootui-datetimepicker": "*",
         "mihaildev/yii2-ckeditor": "*",
-        "mihaildev/yii2-elfinder": "*"
+        "mihaildev/yii2-elfinder": "*",
+        "costa-rico/yii2-images": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
