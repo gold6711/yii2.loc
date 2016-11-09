@@ -40,7 +40,10 @@ use yii\helpers\Html;
 
                 </div>
             </div>
-
+            <?php
+            $mainImg => $product->getImage();
+            $gallery => $product->getImage();
+            ?>
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
