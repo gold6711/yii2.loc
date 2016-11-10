@@ -21,6 +21,7 @@ use Yii;
  */
 class Product extends \yii\db\ActiveRecord
 {
+	
     public $image;
     public $gallery;
 
@@ -102,7 +103,6 @@ class Product extends \yii\db\ActiveRecord
                 $this->attachImage($path);
                 @unlink($path);
             }
-
             return true;
         }else{
             return false;
