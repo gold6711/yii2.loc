@@ -10,15 +10,15 @@ mihaildev\elfinder\Assets::noConflict($this);
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-checkbox
+
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="form-group field-product-category_id has-success">
-        <label class="control-label" for="product-category_id">Родитеьская категория</label>
+        <label class="control-label" for="product-category_id">Родительская категория</label>
         <select id="product-category_id" class="form-control" name="Product[category_id]">
-            <?=\app\components\MenuWidget::widget(['tpl' => 'select_product', 'model' => $model]) ?>
+            <?= \app\components\MenuWidget::widget(['tpl' => 'select_product', 'model' => $model])?>
         </select>
     </div>
 
@@ -26,7 +26,7 @@ checkbox
 
     <?php
     echo $form->field($model, 'content')->widget(CKEditor::className(), [
-    'editorOptions' => ElFinder::ckeditorOptions('elfinder',[]),
+		'editorOptions' => ElFinder::ckeditorOptions('elfinder', [])
     ]);
     ?>
 
@@ -40,11 +40,11 @@ checkbox
 
     <?= $form->field($model, 'gallery[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
-    <?= $form->field($model, 'hit')->checkbox([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'hit')->checkbox([ '0', '1', ]) ?>
 
-    <?= $form->field($model, 'new')->checkbox([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'new')->checkbox([ '0', '1', ]) ?>
 
-    <?= $form->field($model, 'sale')->checkbox([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sale')->checkbox([ '0', '1', ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

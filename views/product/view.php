@@ -1,4 +1,6 @@
 <?php
+
+/* @var $this yii\web\View */
 use yii\helpers\Html;
 ?>
 <section>
@@ -42,7 +44,7 @@ use yii\helpers\Html;
             </div>
             <?php
             $mainImg = $product->getImage();
-            $gallery = $product->getImage();
+            $gallery = $product->getImages();
             ?>
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
@@ -59,9 +61,8 @@ use yii\helpers\Html;
                                 <?php if($i % 3 == 0): ?>
                                     <div class="item <?php if($i == 0) echo 'active' ?>">
                                 <?php endif; ?>
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
+                                    <a href=""><?= Html::img($img->getUrl('84x85'), ['alt' => ''])?></a>
+
                                 <?php $i++; if($i % 3 == 0 || $i == $count): ?>
                                 </div>
                                 <?php endif; ?>

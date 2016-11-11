@@ -24,19 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-    <?php $img = $model->getImage();?>
+    <?php $img = $model->getImage(); ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            //'category_id',
-            //'description:html',
-            [
-                'label' => 'Категория',
-                'value' => $model->category->name,
-            ],
+            'category_id',
             'name',
-            'content:ntext',
+            'content:html',
             'price',
             'keywords',
             'description',
@@ -45,12 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => "<img src='{$img->getUrl()}'>",
                 'format' => 'html',
             ],
-            //'hit',
-            [
-                'label' => 'Хит',
-                'value' => $model->hit,
-                'format' => 'html',
-            ],
+            'hit',
             'new',
             'sale',
         ],
