@@ -50,7 +50,7 @@ use yii\helpers\Html;
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-                            <?= Html::img($mainImg->getUrl(), ['alt' => $product->name]) ?>
+                            <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -148,4 +148,3 @@ use yii\helpers\Html;
         </div>
     </div>
 </section>
-	
