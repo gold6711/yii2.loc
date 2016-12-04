@@ -3,10 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
 
-    'components' => [
-        'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Euk_iMoCUXXRFhVYOnRhv07DDXrxMQWm',
             'baseUrl' => '',
