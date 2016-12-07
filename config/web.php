@@ -46,14 +46,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true, //для реальной отправки письма выставить в false
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.mail.ru',
-                'username' => 'gold6711',
-                'password' => 'pass',
-                'port' => '465',
-                'encryption' => 'ssl',
-            ],
+//            'transport' => [
+//                'class' => 'Swift_SmtpTransport',
+//                'host' => 'smtp.mail.ru',
+//                'username' => 'gold6711',
+//                'password' => 'pass',
+//                'port' => '465',
+//                'encryption' => 'ssl',
+//            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
