@@ -18,23 +18,26 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-//        'css/bootstrap.min.css',
         'css/font-awesome.min.css',
-        'css/prettyPhoto.css',
-        'css/price-range.css',
-        'css/animate.css',
-        'css/main.css',
-        'css/responsive.css',
+        'css/components.css',
+        'css/base.css',
+        'css/style.css',
     ];
     public $js = [
-//        'js/jquery.js',
-//        'js/bootstrap.min.js',
         'js/jquery.scrollUp.min.js',
         'js/price-range.js',
         'js/jquery.prettyPhoto.js',
         'js/jquery.cookie.js',
         'js/jquery.accordion.js',
         'js/main.js',
+        'js/jquery.easydropdown.min.js',
+        'js/jquery.flexslider-min.js',
+        'js/jquery.mobile.custom.min.js',
+        'js/jquery.themepunch.revolution.min.js',
+        'js/jquery.viewportchecker.min.js',
+        'js/jquery.waypoints.min.js',
+        'js/scripts.js',
+        'js/snap.svg-min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
