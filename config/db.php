@@ -2,8 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2_loc',
+    'dsn' => 'mysql:host=localhost;dbname=oglasi',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
+    'tablePrefix' => 'jb_',
 ];
