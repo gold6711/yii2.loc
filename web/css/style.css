@@ -1580,7 +1580,7 @@ Slider navigation
   text-indent: 100%;
   white-space: nowrap;
   color: transparent;
-  background: url(img/cd-icon-arrows.svg) no-repeat 0 0;
+  background: url(/web/images/cd-icon-arrows.svg) no-repeat 0 0;
   -webkit-transition: -webkit-transform 0.2s;
   -moz-transition: -moz-transform 0.2s;
   transition: transform 0.2s;
