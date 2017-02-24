@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
     <div class="row">
         <div class="col-sm-8 f-left">
-            <b><?= $ad->title ?></b>
+            <a href="<?= \yii\helpers\Url::to(['board/adview', 'id' => $ad->id])?>" ><?= $ad->title ?></a>
         </div>
     </div>
     <?= $ad->text ?>
