@@ -3,8 +3,9 @@
 ?>
 <h1>board/index</h1>
 
-<?php debug($hits->boards)?>
+<?php //debug($hits->boards)?>
 
+<?php echo $hits->boards?>
 <?php echo count($hits)?>
 <?php// debug($hits)?>
 

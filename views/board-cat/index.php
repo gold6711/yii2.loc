@@ -10,7 +10,7 @@ use yii\helpers\Html;
                 <div id="r" class="col-md-3">
                     <div class="service-box">
                         <div class="icon">
-                            <h3><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= Html::img("/web/icons/{$cat->img}", ['alt' => $cat->name_cat])?></a>
+                            <h3><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= Html::img("/web/icons/{$cat->img}", ['alt' => $cat->name_cat])?></a></h3>
                         </div>
                         <h3><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= $cat->name_cat ?></a></h3>
                         <p>Consectetuer adipiscing elit, sed</p>

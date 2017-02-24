@@ -1,16 +1,22 @@
 <?php
 namespace app\controllers;
+
 use app\models\BoardCat;
 use app\models\Board;
 use Yii;
 
-class BoardController extends AppController {
-
-    public function actionView(){
-        $hits = BoardCat::find()->where(['id' => 196])->one();
-        return $this->render('index', compact('hits'));
-
+class BoardController extends AppController
+{
+    public function actionView()
+    {
+        $id = Yii::$app->request->get('id');
+        $ads = Board::find()->where(['id_category' => $id])->all(); // выводим все объявлен по номеру категории
+        return $this->render('view', compact('ads'));
     }
+
+
+
+
 
 //public function actionIndex(){
 //

@@ -1,20 +1,15 @@
 <?php
 use yii\helpers\Html;
 ?>
-<h1>board/index</h1>
+<h1>board-cat/view</h1>
 <?php //debug($boards)?>
 <?php foreach ($boards as $board): ?>
 
-    <h3><?= $board->name_cat ?></h3>
     <div class="row">
         <div class="col-sm-8 f-left">
-            <?= $board->title_cat ?>
+            <a href="<?= \yii\helpers\Url::to(['board/view', 'id' => $board->id])?>" ><?= $board->name_cat ?></a>
         </div>
     </div>
-
-
-    <!--<h5>--><?//= $board->price ?><!--</h5>-->
-    <!--<h5>--><?//= $board->city ?><!--</h5>-->
-
-    <?php //$i++;?>
+    <h5><?= $board->description ?></h5>
+    <br>
 <?php endforeach; ?>
