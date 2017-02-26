@@ -14,7 +14,7 @@ class BoardController extends AppController
         return $this->render('view', compact('ads'));
     }
 
-    public function actionAdview()
+    public function actionAdView()
     {
         $id = Yii::$app->request->get('id');
         $ad = Board::find()->where(['id' => $id])->one();
