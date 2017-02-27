@@ -80,6 +80,8 @@ input[type='submit'] {
 }
 img {
 	vertical-align: middle;
+	width: 90px;  /* added 26.02 svg icons home page*/
+
 }
 .img-responsive {
 	display: block;

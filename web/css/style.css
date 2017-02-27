@@ -814,6 +814,12 @@ header.alt .mobile-navigation .mobile-btn span:after {
 .features-section .icon img {
 	width: 64px;
 }
+
+.icon {
+	margin-top: 50px;
+
+}
+
 .features-section .feature-title {
 	margin: 10px 0 -2px;
 }

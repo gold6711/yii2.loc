@@ -58,7 +58,7 @@ ltAppAsset::register($this);
     <header class="alt">
         <div class="container">
             <div class="logo-container fl clearfix">
-                <a href="#" class="ib">
+                <a href="/" class="ib">
                     <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
                     <span class="site-name">Oglasi<span>*</span></span>
                 </a>

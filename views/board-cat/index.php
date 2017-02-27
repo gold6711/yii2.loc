@@ -12,7 +12,7 @@ use yii\helpers\Html;
                         <div class="icon">
                             <h3><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= Html::img("/web/icons/{$cat->img}", ['alt' => $cat->name_cat])?></a></h3>
                         </div>
-                        <h3><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= $cat->name_cat ?></a></h3>
+                        <h3 class="h3-title"><a href="<?= \yii\helpers\Url::to(['board-cat/view', 'id' => $cat->id])?>" ><?= $cat->name_cat ?></a></h3>
                         <p>Consectetuer adipiscing elit, sed</p>
                     </div>
                     <!-- end: Box -->

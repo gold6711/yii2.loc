@@ -7,9 +7,9 @@ use yii\helpers\Html;
 
     <div class="row">
         <div class="col-sm-8 f-left">
-            <a href="<?= \yii\helpers\Url::to(['board/view', 'id' => $board->id])?>" ><?= $board->name_cat ?></a>
+            <h5 class="h5-title"><a href="<?= \yii\helpers\Url::to(['board/view', 'id' => $board->id])?>" ><?= $board->name_cat ?></a></h5>
         </div>
     </div>
-    <h5><?= $board->description ?></h5>
+    <?= $board->description ?>
     <br>
 <?php endforeach; ?>

@@ -4,14 +4,18 @@ namespace app\controllers;
 use app\models\BoardCat;
 use app\models\Board;
 use Yii;
+use yii\data\Pagination;
 
 class BoardController extends AppController
 {
     public function actionView()
     {
         $id = Yii::$app->request->get('id');
-        $ads = Board::find()->where(['id_category' => $id])->all(); // выводим все объявлен по номеру категории
-        return $this->render('view', compact('ads'));
+        //$ads = Board::find()->where(['id_category' => $id])->all(); // выводим все объявлен по номеру категории
+        $query = Board::find()->where(['id_category' => $id]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $ads = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('view', compact('ads', 'pages'));
     }
 
     public function actionAdView()
