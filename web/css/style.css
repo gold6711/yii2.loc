@@ -1655,3 +1655,12 @@ Slider dots/controls
 .no-touch .cd-slider-controls a:hover {
   background-color: #ffffff;
 }
+/* стили для вывода последних объявлений на домашн стр*/
+.news-list {
+	width: 70%;
+	margin: 0 auto;
+}
+.news-item {
+	margin-top: 30px;
+	padding-bottom: 15px;
+}

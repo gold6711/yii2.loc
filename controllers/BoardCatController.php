@@ -3,6 +3,7 @@ namespace app\controllers;
 
 use app\models\BoardCat;
 use app\models\Board;
+use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use Yii;
 
@@ -22,8 +23,7 @@ class BoardCatController extends AppController
     {
 
         $cats = BoardCat::find()->where(['root_category' => 0])->all();
-        if (empty($cats))
-            throw new \yii\web\HttpException(404, 'Такой категории нет');
+
         return $this->render('index', compact('cats'));
     }
 }

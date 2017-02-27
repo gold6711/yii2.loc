@@ -11,8 +11,7 @@ class BoardController extends AppController
     public function actionView()
     {
         $id = Yii::$app->request->get('id');
-        //$ads = Board::find()->where(['id_category' => $id])->all(); // выводим все объявлен по номеру категории
-        $query = Board::find()->where(['id_category' => $id]);
+        $query = Board::find()->where(['id_category' => $id])->orderBy('date_add DESC');
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $ads = $query->offset($pages->offset)->limit($pages->limit)->all();
         return $this->render('view', compact('ads', 'pages'));
