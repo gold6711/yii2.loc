@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 use yii\db\ActiveRecord;
+
 class Board extends ActiveRecord {
     public function behaviors()
     {
@@ -75,5 +76,13 @@ class Board extends ActiveRecord {
      */
     public function getBoardCat() {
         return $this->hasOne(BoardCat::className(), ['id' => 'id_category']);
+    }
+
+    /**
+     * This join with entity Photo
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPhoto() {
+        return $this->hasMany(Photo::className(), ['id_message' => 'id']);
     }
 }

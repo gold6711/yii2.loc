@@ -5,6 +5,9 @@ use yii\widgets\LinkPager;
 
 ?>
 <h1>board/view</h1>
+<?php //debug($boardname)?>
+<h3 class="h3-title"><?= ($boardname->name_cat); ?></h3><br><br><br>
+
 <?php if (!empty($ads)): ?>
     <?php foreach ($ads as $ad): ?>
         <div class="row">

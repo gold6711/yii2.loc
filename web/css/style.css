@@ -1664,3 +1664,8 @@ Slider dots/controls
 	margin-top: 30px;
 	padding-bottom: 15px;
 }
+.photo img {
+	width: 300px;  /* added 13.03 picture on single board page*/
+	float: left;
+	margin-left: 20px;
+}

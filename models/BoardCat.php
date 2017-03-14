@@ -18,6 +18,18 @@ use Yii;
  */
 class BoardCat extends ActiveRecord {
 
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName() {
         return  '{{%board_cat}}';
     }

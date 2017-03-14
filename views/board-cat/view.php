@@ -1,8 +1,11 @@
 <?php
 use yii\helpers\Html;
 ?>
-<h1>board-cat/view</h1>
-<?php //debug($boards)?>
+<h1>board-cat/view</h1><br>
+<?php //debug($cat)?>
+
+<h3 class="h3-title"><?= ($catname->name_cat); ?></h3><br><br><br>
+
 <?php foreach ($boards as $board): ?>
 
     <div class="row">
