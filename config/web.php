@@ -12,7 +12,7 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Module',
             'layout' => 'admin',
-            'defaultRoute' => 'order/index',
+            'defaultRoute' => 'default/index',
         ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',

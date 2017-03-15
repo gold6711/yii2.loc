@@ -1,5 +1,4 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -14,161 +13,219 @@ AppAsset::register($this);
 ltAppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
-    <!DOCTYPE html>
-    <html lang="<?= Yii::$app->language ?>">
-    <head>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= Html::csrfMetaTags() ?>
-        <title>Админка | <?= Html::encode($this->title) ?></title>
-        <?php $this->head() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-        <link rel="shortcut icon" href="images/ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-    </head><!--/head-->
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+</head>
+<body id="home-5">
+<?php $this->beginBody() ?>
+<div id="entire">
+    <div class="loader"></div>
+    <div class="top-bar clearfix">
+        <div class="container">
+            <div class="fl top-social-icons">
+                <ul class="clearfix">
+                    <li><a href="#" class="fb-icon ln-tr"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="tw-icon ln-tr"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="gp-icon ln-tr"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="pn-icon ln-tr"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#" class="vm-icon ln-tr"><i class="fa fa-vimeo-square"></i></a></li>
+                    <li><a href="#" class="in-icon ln-tr"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#" class="yt-icon ln-tr"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#" class="yt-icon ln-tr"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="#" class="rss-icon ln-tr"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div><!-- End Social Container -->
+            <div class="fr top-contact">
+                <ul class="clearfix">
+                    <li class="fl"><i class="fa fa-phone"></i><span class="text">Горячая линия: 111-111-111</span></li>
+                    <li class="fl divider"><span>&#124;</span></li>
+                    <li class="fl"><i class="fa fa-envelope"></i><span class="text">Email: <a href="mailto:your@gmail.com">your@gmail.com</a></span></li>
+                </ul>
+            </div><!-- End Top Contact -->
+        </div>
+    </div><!-- End Tob Bar -->
+    <header class="alt">
+        <div class="container">
+            <div class="logo-container fl clearfix">
+                <a href="/" class="ib">
+                    <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
+                    <span class="site-name">Oglasi<span>*</span></span>
+                </a>
+            </div><!-- End Logo Container -->
+            <nav class="main-navigation fr">
+                <ul class="clearfix">
+                    <li class="parent-item haschild current_page_item">
+                        <a href="/" class="ln-tr">Главная</a>
+                    </li>
+                    <li class="parent-item haschild">
+                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
+                    </li>
+                    <li class="parent-item haschild">
+                        <a href="#" class="ln-tr">Персонал</a>
+                        <ul class="submenu">
+                            <li class="sub-item"><a href="#" class="ln-tr">Агенты</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent-item haschild">
+                        <a href="#" class="ln-tr">Информация</a>
+                        <ul class="submenu">
+                            <li class="sub-item">
+                                <a href="#" class="ln-tr">Проекты</a>
+                            </li>
+                            <li class="sub-item"><a href="#" class="ln-tr">Описание проекта</a></li>
+                            <li class="sub-item"><a href="#" class="ln-tr">Фото</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent-item">
+                        <a href="#" class="ln-tr">О нас</a>
+                    </li>
+                    <li class="parent-item haschild">
+                        <a href="#0" class="ln-tr">Новости</a>
+                        <ul class="submenu">
+                            <li class="sub-item">
+                                <a href="#" class="ln-tr">Список новостей</a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" class="ln-tr">Новость</a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" class="ln-tr">Категории</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent-item">
+                        <a href="#" class="ln-tr">Контакты</a>
+                    </li>
+                    <li class="parent-item login">
+                        <?php if (!Yii::$app->user->isGuest):?>
+                        <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><?= Yii::$app->user->identity['username'] ?><span class="grad-btn">Вход</span></a></li>
+                        <?php endif; ?>
+                </ul>
+            </nav><!-- End NAV Container -->
+            <div class="mobile-navigation fr">
+                <a href="#" class="mobile-btn"><span></span></a>
+                <div class="mobile-container"></div>
+            </div><!-- end mobile navigation -->
+        </div>
+    </header><!-- End Main Header Container -->
 
-    <body>
-    <?php $this->beginBody() ?>
-    <header id="header"><!--header-->
-        <div class="header_top"><!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+    <?= $content ?>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="widget about-widget">
+                        <h6 class="widget-title">О нашей компании</h6>
+                        <p class="about-text">
+                            С другой стороны дальнейшее развитие различных форм деятельности требуют от нас анализа существенных финансовых и административных условий. Товарищи! постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.
+                        </p>
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="#" class="ln-tr">О нас</a></li>
+                                <li><a href="#" class="ln-tr">Новости</a></li>
+                                <li><a href="#" class="ln-tr">Контакты</a></li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </div><!-- End Footer Links -->
+                    </div><!-- End About Widget -->
+                </div><!-- End col-md3 -->
+                <div class="col-md-3">
+                    <div class="widget twitter-widget">
+                        <h6 class="widget-title">События</h6>
+                        <div id="tweets-slider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="tweet">
+                                        <a href="#" class="ln-tr">@Джону</a> Короткое описание события.
+                                        <div class="date">Авг. 6, 2015</div>
+                                    </div><!-- End Single Tweet -->
+                                    <div class="tweet">
+                                        <a href="#" class="ln-tr">@Джону</a> Короткое описание события.
+                                        <div class="date">Авг. 6, 2015</div>
+                                    </div><!-- End Single Tweet -->
+                                </li><!-- End 1st Tweet Slide Item -->
+                            </ul><!-- End ul Items -->
+                        </div><!-- End Tweets Slider -->
+                    </div><!-- End Twitter Widget -->
+                </div><!-- End col-md3 -->
+                <div class="col-md-4">
+                    <div class="widget reales-widget">
+                        <h6 class="widget-title">Что нового?</h6>
+                        <div id="footer-reales-slider">
+                            <ul class="slides">
+                                <li class="clearfix">
+                                    <div class="reale-icon fl">
+                                        <span class="icon grad-btn"><i class="fa fa-bookmark"></i></span>
+                                    </div><!-- End reale Icon -->
+                                    <div class="reale-info">
+                                        <h4 class="footer-reale-title"><a href="#" class="ln-tr">Заголовок события</a></h4>
+                                        <p class="footer-reale-description">Краткое описание события</p>
+                                        <span class="reale-date">Авг. 8, 2015</span>
+                                    </div><!-- End reale Info -->
+                                    <div class="reale-icon fl">
+                                        <span class="icon"><i class="fa fa-bookmark"></i></span>
+                                    </div><!-- End reale Icon -->
+                                    <div class="reale-info">
+                                        <h4 class="footer-reale-title"><a href="#" class="ln-tr">Заголовок события</a></h4>
+                                        <p class="footer-reale-description">Краткое описание события</p>
+                                        <span class="reale-date">Авг. 8, 2015</span>
+                                    </div><!-- End reale Info -->
+                                </li><!-- End 1st Slide Item -->
+                            </ul><!-- End ul Items -->
+                        </div><!-- End Footer Sreales Slider -->
+                    </div><!-- End reales Widget -->
+                </div><!-- End col-md4 -->
+                <div class="col-md-2">
+                    <div class="widget links-widget">
+                        <h6 class="widget-title">Полезные ссылки</h6>
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="#" class="ln-tr">Помощь</a></li>
+                                <li><a href="#" class="ln-tr">Карта сайта</a></li>
+                                <li><a href="#" class="ln-tr">Связь</a></li>
+                                <li><a href="#" class="ln-tr">Лицензия</a></li>
+                                <li><a href="#" class="ln-tr">Поддержка</a></li>
+                                <li><a href="#" class="ln-tr">Персонал</a></li>
+                                <li><a href="#" class="ln-tr">Объекты</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- End Footer Links -->
+                    </div><!-- End Links Widget -->
+                </div><!-- End col-md2 -->
             </div>
-        </div><!--/header_top-->
-
-        <div class="header-middle"><!--header-middle-->
+        </div>
+        <div id="bottom">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="logo pull-left">
-                            <a href="<?= \yii\helpers\Url::home()?>"><?= Html::img('@web/images/home/logo.png', ['alt' => 'E_SHOPPER'])?></a>
-                        </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canada</a></li>
-                                    <li><a href="#">UK</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    DOLLAR
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canadian Dollar</a></li>
-                                    <li><a href="#">Pound</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-                                <?php if(!Yii::$app->user->isGuest):?>
-                                    <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i><?= Yii::$app->user->identity['username']?> (Выход)</a></li>
-                                <?php endif; ?>
-                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header-middle-->
-
-        <div class="header-bottom"><!--header-bottom-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="mainmenu pull-left">
-                            <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="<?=\yii\helpers\Url::to(['/admin']) ?>" class="active">Панель администратора</a></li>
-                                <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
-                                        <li><a href="<?=\yii\helpers\Url::to(['category/create']) ?>">Добавить категорию</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="<?=\yii\helpers\Url::to(['product/index']) ?>">Список товаров</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="search_box pull-right">
-                            <form method="get" action="<?= \yii\helpers\Url::to(['category/search']) ?>">
-                                <input type="text" placeholder="Search" name="q">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header-bottom-->
-    </header><!--/header-->
-
-    <div class="container">
-        <?php if( Yii::$app->session->hasFlash('success') ): ?>
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <?php echo Yii::$app->session->getFlash('success'); ?>
-            </div>
-        <?php endif; ?>
-        <?= $content; ?>
-    </div>
+                <div class="fl copyright">
+                    <p>&copy; Realty - шаблон сайта недвижимости 2015 <a href="http://html6.com.ru">HTML6.COM.RU</a></p>
+                </div><!-- End Copyright -->
+                <div class="fr footer-social-icons">
+                    <ul class="clearfix">
+                        <li><a href="#" class="fb-icon ln-tr"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="tw-icon ln-tr"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="gp-icon ln-tr"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="in-icon ln-tr"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" class="yt-icon ln-tr"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="#" class="rss-icon ln-tr"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                </div><!-- End Social Media Icons -->
+            </div><!-- End container -->
+        </div><!-- End Bottom Footer -->
+    </footer><!-- End Footer -->
+</div><!-- End Entire Wrap -->
 
 
-    <footer id="footer"><!--Footer-->
-        <footer class="footer">
-            <div class="container">
-                <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-                <p class="pull-right"><?= Yii::powered() ?></p>
-            </div>
-        </footer>
-
-    <?php $this->endBody() ?>
-    </body>
-    </html>
+<?php $this->endBody() ?>
+</body>
+</html>
 <?php $this->endPage() ?>

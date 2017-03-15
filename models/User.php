@@ -7,7 +7,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
 
     public static function tableName(){
-        return 'user';
+        return '{{%user}}';
     }
 
     /**
@@ -62,7 +62,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      * @return boolean if password provided is valid for current user
      */
     public function validatePassword($password){
-        //return $this->password === $password;
+//        return $this->password === $password;
         return \Yii::$app->security->validatePassword($password, $this->password);
     }
 
