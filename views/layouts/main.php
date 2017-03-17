@@ -57,7 +57,7 @@ ltAppAsset::register($this);
     </div><!-- End Tob Bar -->
     <header class="alt">
         <div class="container">
-            <?php debug(Yii::$app->user->identity) ?>
+<!--            --><?php //debug(Yii::$app->user) ?>
             <div class="logo-container fl clearfix">
                 <a href="/" class="ib">
                     <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
@@ -69,9 +69,9 @@ ltAppAsset::register($this);
                     <li class="parent-item haschild current_page_item">
                         <a href="/" class="ln-tr">Главная</a>
                     </li>
-                    <li class="parent-item haschild">
-                        <a href="<?= \yii\helpers\Url::to(['site/login']) ?>" class="ln-tr">Войти</a>
-                    </li>
+<!--                    <li class="parent-item haschild">-->
+<!--                        <a href="--><?//= \yii\helpers\Url::to(['/admin']) ?><!--" class="ln-tr">Войти</a>-->
+<!--                    </li>-->
                     <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Персонал</a>
                         <ul class="submenu">
@@ -109,12 +109,12 @@ ltAppAsset::register($this);
                         <a href="#" class="ln-tr">Контакты</a>
                     </li>
                     <li class="parent-item login">
-                        <?php if (!Yii::$app->user->isGuest):?>
-                        <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><?= Yii::$app->user->identity['username'] ?><span class="grad-btn">Вход</span></a></li>
-                        <?php endif; ?>
+<!--                        --><?php //if (!Yii::$app->user->isGuest):?>
+                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Выход</span></a></li>
+<!--                        --><?php //endif; ?>
                 </ul>
             </nav><!-- End NAV Container -->
-            <?php debug(Yii::$app->user->identity) ?>
+<!--            --><?php //debug(Yii::$app->user) ?>
             <div class="mobile-navigation fr">
                 <a href="#" class="mobile-btn"><span></span></a>
                 <div class="mobile-container"></div>

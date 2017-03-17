@@ -57,6 +57,7 @@ ltAppAsset::register($this);
     </div><!-- End Tob Bar -->
     <header class="alt">
         <div class="container">
+<!--            --><?php //debug(Yii::$app->user->isGuest) ?>
             <div class="logo-container fl clearfix">
                 <a href="/" class="ib">
                     <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
@@ -109,7 +110,7 @@ ltAppAsset::register($this);
                     </li>
                     <li class="parent-item login">
                         <?php if (!Yii::$app->user->isGuest):?>
-                        <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><?= Yii::$app->user->identity['username'] ?><span class="grad-btn">Вход</span></a></li>
+                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><?= Yii::$app->user->identity['username'] ?><span class="grad-btn">Вход</span></a></li>
                         <?php endif; ?>
                 </ul>
             </nav><!-- End NAV Container -->

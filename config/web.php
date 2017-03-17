@@ -12,7 +12,7 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Module',
             'layout' => 'admin',
-            'defaultRoute' => 'default/index',
+            //'defaultRoute' => 'default/index',
         ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
@@ -36,6 +36,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            //'loginUrl' => ['site/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
