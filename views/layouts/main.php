@@ -69,9 +69,13 @@ ltAppAsset::register($this);
                     <li class="parent-item haschild current_page_item">
                         <a href="/" class="ln-tr">Главная</a>
                     </li>
-<!--                    <li class="parent-item haschild">-->
-<!--                        <a href="--><?//= \yii\helpers\Url::to(['/admin']) ?><!--" class="ln-tr">Войти</a>-->
-<!--                    </li>-->
+                    <li class="parent-item haschild">
+                        <?php if (Yii::$app->user->isGuest){ ?>
+                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
+                            <?php } else { ?>
+                            <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr">Выйти</a>
+                        <?php } ?>
+                    </li>
                     <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Персонал</a>
                         <ul class="submenu">
@@ -109,9 +113,11 @@ ltAppAsset::register($this);
                         <a href="#" class="ln-tr">Контакты</a>
                     </li>
                     <li class="parent-item login">
-<!--                        --><?php //if (!Yii::$app->user->isGuest):?>
-                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Выход</span></a></li>
-<!--                        --><?php //endif; ?>
+                        <?php if (!Yii::$app->user->isGuest){ ?>
+                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" ><span class="grad-btn">Выход</span></a></li>
+                        <?php } else { ?>
+                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="ln-tr" ><span class="grad-btn">Вход</span></a></li>
+                        <?php }  ?>
                 </ul>
             </nav><!-- End NAV Container -->
 <!--            --><?php //debug(Yii::$app->user) ?>

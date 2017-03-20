@@ -70,7 +70,7 @@ ltAppAsset::register($this);
                         <a href="/" class="ln-tr">Главная</a>
                     </li>
                     <li class="parent-item haschild">
-                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
+                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr">Выйти</a>
                     </li>
                     <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Персонал</a>
@@ -109,8 +109,11 @@ ltAppAsset::register($this);
                         <a href="#" class="ln-tr">Контакты</a>
                     </li>
                     <li class="parent-item login">
-                        <?php if (!Yii::$app->user->isGuest):?>
-                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><?= Yii::$app->user->identity['username'] ?><span class="grad-btn">Вход</span></a></li>
+                        <?php if (!Yii::$app->user->isGuest): ?>
+                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Выход</span></a></li>
+                        <?php endif; ?>
+                        <?php if (Yii::$app->user->isGuest): ?>
+                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Вход</span></a></li>
                         <?php endif; ?>
                 </ul>
             </nav><!-- End NAV Container -->
