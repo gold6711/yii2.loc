@@ -127,8 +127,8 @@ ltAppAsset::register($this);
             </div><!-- end mobile navigation -->
         </div>
     </header><!-- End Main Header Container -->
-    <?php
 
+    <?php
     NavBar::begin([
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,
