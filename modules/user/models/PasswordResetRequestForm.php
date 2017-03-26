@@ -1,5 +1,6 @@
 <?php
 namespace app\modules\user\models;
+
 use Yii;
 use app\modules\user\models\User;
 use yii\base\Model;
@@ -50,7 +51,7 @@ class PasswordResetRequestForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
+                '@app/modules/user/mails/passwordReset',
                 ['user' => $user]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])

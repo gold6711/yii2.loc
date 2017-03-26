@@ -14,6 +14,11 @@ $config = [
             'layout' => 'admin',
             //'defaultRoute' => 'default/index',
         ],
+        'user' => [
+            'class' => 'app\modules\user\Module',
+//            'layout' => 'main',
+            //'defaultRoute' => 'default/index',
+        ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok
@@ -34,7 +39,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\modules\user\models\User',
             'enableAutoLogin' => true,
             //'loginUrl' => ['site/login'],
         ],
@@ -47,14 +52,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true, //для реальной отправки письма выставить в false
-//            'transport' => [
-//                'class' => 'Swift_SmtpTransport',
-//                'host' => 'smtp.mail.ru',
-//                'username' => 'gold6711',
-//                'password' => 'pass',
-//                'port' => '465',
-//                'encryption' => 'ssl',
-//            ],
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mail.ru',
+                'username' => 'gold6711',
+                'password' => 'pass',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -80,6 +85,13 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
+//                'contact' => 'main/contact/index',
+//                '<_a:error>' => 'main/default/<_a>',
+//                '<_a:(login|logout|signup|email-confirm|request-password-reset|password-reset)>' => 'user/default/<_a>',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/<_a>',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/view',
+//                '<_m:[\w\-]+>' => '<_m>/default/index',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
             ],
         ],
 

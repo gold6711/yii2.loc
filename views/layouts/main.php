@@ -3,11 +3,12 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use app\components\widgets\Alert;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+use yii\bootstrap\Nav;
+
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -104,19 +105,19 @@ ltAppAsset::register($this);
                             <li class="sub-item">
                                 <a href="#" class="ln-tr">Новость</a>
                             </li>
-                            <li class="sub-item">
-                                <a href="#" class="ln-tr">Категории</a>
-                            </li>
                         </ul>
                     </li>
-                    <li class="parent-item">
-                        <a href="#" class="ln-tr">Контакты</a>
+                    <li class="sub-item">
+                        <a href="<?= \yii\helpers\Url::to(['site/contact']) ?>" class="ln-tr" ><span class="grad-btn">Контакты</span></a></li>
+                    </li>
+                    <li class="sub-item">
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" >Регистрация</a></li>
                     </li>
                     <li class="parent-item login">
                         <?php if (!Yii::$app->user->isGuest){ ?>
                         <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" ><span class="grad-btn">Выход</span></a></li>
                         <?php } else { ?>
-                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="ln-tr" ><span class="grad-btn">Вход</span></a></li>
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/login']) ?>" class="ln-tr" ><span class="grad-btn">Вход</span></a></li>
                         <?php }  ?>
                 </ul>
             </nav><!-- End NAV Container -->
@@ -127,45 +128,12 @@ ltAppAsset::register($this);
             </div><!-- end mobile navigation -->
         </div>
     </header><!-- End Main Header Container -->
-    <?php
 
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
+    <div class="container">
+        <?= $content ?>
+    </div>
 
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
 
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'РГИСТРАЦИЯ', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'ВОЙТИ', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-
-    NavBar::end();
-    ?>
-
-<?= $content ?>
 
     <footer id="footer">
         <div class="container">

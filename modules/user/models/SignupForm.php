@@ -29,7 +29,7 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => User::className(), 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            ['password', 'string', 'min' => 3],
 
             ['verifyCode', 'captcha', 'captchaAction' => '/user/default/captcha'],
         ];
