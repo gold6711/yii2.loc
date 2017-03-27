@@ -71,19 +71,6 @@ ltAppAsset::register($this);
                         <a href="/" class="ln-tr">Главная</a>
                     </li>
                     <li class="parent-item haschild">
-                        <?php if (Yii::$app->user->isGuest){ ?>
-                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
-                            <?php } else { ?>
-                            <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr">Выйти</a>
-                        <?php } ?>
-                    </li>
-                    <li class="parent-item haschild">
-                        <a href="#" class="ln-tr">Персонал</a>
-                        <ul class="submenu">
-                            <li class="sub-item"><a href="#" class="ln-tr">Агенты</a></li>
-                        </ul>
-                    </li>
-                    <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Информация</a>
                         <ul class="submenu">
                             <li class="sub-item">
@@ -92,9 +79,6 @@ ltAppAsset::register($this);
                             <li class="sub-item"><a href="#" class="ln-tr">Описание проекта</a></li>
                             <li class="sub-item"><a href="#" class="ln-tr">Фото</a></li>
                         </ul>
-                    </li>
-                    <li class="parent-item">
-                        <a href="#" class="ln-tr">О нас</a>
                     </li>
                     <li class="parent-item haschild">
                         <a href="#0" class="ln-tr">Новости</a>
@@ -108,10 +92,10 @@ ltAppAsset::register($this);
                         </ul>
                     </li>
                     <li class="sub-item">
-                        <a href="<?= \yii\helpers\Url::to(['site/contact']) ?>" class="ln-tr" ><span class="grad-btn">Контакты</span></a></li>
+                        <a href="<?= \yii\helpers\Url::to(['site/contact']) ?>" class="ln-tr">Контакты</a></li>
                     </li>
-                    <li class="sub-item">
-                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" >Регистрация</a></li>
+                    <li class="parent-item login">
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" ><span class="grad-btn">Регистрация</span></a></li>
                     </li>
                     <li class="parent-item login">
                         <?php if (!Yii::$app->user->isGuest){ ?>

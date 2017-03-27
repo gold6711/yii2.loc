@@ -20,18 +20,32 @@ class SignupForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'match', 'pattern' => '#^[\w_-]+$#i'],
-            ['username', 'unique', 'targetClass' => User::className(), 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => User::className(), 'message' => 'Это имя пользователя уже используется.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => User::className(), 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => User::className(), 'message' => 'Этот email адрес уже используется.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 3],
 
             ['verifyCode', 'captcha', 'captchaAction' => '/user/default/captcha'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'created_at' => 'Создан',
+            'updated_at' => 'Обновлён',
+            'username' => 'Имя пользователя',
+            'email' => 'Email',
+            'password' => 'Пароль',
+            'verifyCode' => 'Проверочный код',
+            'status' => 'Статус',
         ];
     }
 
@@ -53,9 +67,9 @@ class SignupForm extends Model
 
             if ($user->save()) {
                 Yii::$app->mailer->compose('@app/modules/user/mails/emailConfirm', ['user' => $user])
-                    ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name])
+                    ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name])
                     ->setTo($this->email)
-                    ->setSubject('Email confirmation for ' . Yii::$app->name)
+                    ->setSubject('Email подтверждение для ' . Yii::$app->name)
                     ->send();
                 return $user;
             }

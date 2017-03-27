@@ -58,7 +58,6 @@ class DefaultController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -85,7 +84,6 @@ class DefaultController extends Controller
                 return $this->goHome();
             }
         }
-
         return $this->render('signup', [
             'model' => $model,
         ]);
@@ -100,6 +98,7 @@ class DefaultController extends Controller
         }
 
         if ($model->confirmEmail()) {
+            echo 'bla bla';
             Yii::$app->getSession()->setFlash('success', 'Спасибо! Ваш Email успешно подтверждён.');
         } else {
             Yii::$app->getSession()->setFlash('error', 'Ошибка подтверждения Email.');
@@ -108,19 +107,25 @@ class DefaultController extends Controller
         return $this->goHome();
     }
 
+//$session = Yii::$app->session;
+//// устанавливаем значение flash сообщения
+//$session->setFlash('userinsert', 'Регистрация прошла успешно!');
+//// проверяем наличие сообщения
+//$result = $session->hasFlash('userinsert');
+//// получаем и отображаем сообщение
+//echo $session->getFlash('userinsert');
+
     public function actionPasswordResetRequest()
     {
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->getSession()->setFlash('success', 'Спасибо! На ваш Email было отправлено письмо со ссылкой на восстановление пароля.');
-
                 return $this->goHome();
             } else {
                 Yii::$app->getSession()->setFlash('error', 'Извините. У нас возникли проблемы с отправкой.');
             }
         }
-
         return $this->render('passwordResetRequest', [
             'model' => $model,
         ]);

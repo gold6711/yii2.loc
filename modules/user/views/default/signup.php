@@ -7,13 +7,13 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\modules\user\models\SignupForm */
 
-$this->title = 'Signup';
+$this->title = 'Регистрация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-default-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="h3-title"><?= Html::encode($this->title) ?></h3><br>
 
-    <p>Please fill out the following fields to signup:</p>
+    <h5 class="h5-title">Пожалуйста заполните форму для регистрации:</h5><br>
 
     <div class="row">
         <div class="col-lg-5">

@@ -2,7 +2,6 @@
 namespace app\modules\user\models;
 
 use Yii;
-use app\modules\user\models\User;
 use yii\base\Model;
 /**
  * Password reset request form
@@ -20,7 +19,7 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\common\models\User',
+                'targetClass' => 'app\modules\user\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with this email address.'
             ],
