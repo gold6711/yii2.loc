@@ -1,4 +1,5 @@
 <?php
+use app\modules\user\models\User;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -42,6 +43,11 @@ $config = [
             'identityClass' => 'app\modules\user\models\User',
             'enableAutoLogin' => true,
             //'loginUrl' => ['site/login'],
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+            'defaultRoles' => ['admin', 'BRAND', 'TALENT'], // Здесь нет роли "guest", т.к. эта роль виртуальная
+                                                            // и не присутствует в модели UserExt
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

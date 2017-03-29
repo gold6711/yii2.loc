@@ -12,28 +12,29 @@ use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use Yii;
+use yii\web\ForbiddenHttpException;
 
 class DefaultController extends Controller
 {
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'only' => ['logout', 'signup'],
+//                'rules' => [
+//                    [
+//                        'actions' => ['signup'],
+//                        'allow' => true,
+//                        'roles' => ['?'],
+//                    ],
+//                    [
+//                        'actions' => ['logout'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -42,6 +43,19 @@ class DefaultController extends Controller
             ],
         ];
     }
+
+//    public function beforeAction($action)
+//    {
+//        if (parent::beforeAction($action)) {
+//            debug(\Yii::$app->user->group);exit;
+//            if (!\Yii::$app->user->can($action->id)) {
+//                throw new ForbiddenHttpException('Access denied');
+//            }
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     public function actions()
     {
@@ -98,7 +112,6 @@ class DefaultController extends Controller
         }
 
         if ($model->confirmEmail()) {
-            echo 'bla bla';
             Yii::$app->getSession()->setFlash('success', 'Спасибо! Ваш Email успешно подтверждён.');
         } else {
             Yii::$app->getSession()->setFlash('error', 'Ошибка подтверждения Email.');
@@ -106,14 +119,6 @@ class DefaultController extends Controller
 
         return $this->goHome();
     }
-
-//$session = Yii::$app->session;
-//// устанавливаем значение flash сообщения
-//$session->setFlash('userinsert', 'Регистрация прошла успешно!');
-//// проверяем наличие сообщения
-//$result = $session->hasFlash('userinsert');
-//// получаем и отображаем сообщение
-//echo $session->getFlash('userinsert');
 
     public function actionPasswordResetRequest()
     {

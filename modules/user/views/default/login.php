@@ -6,25 +6,25 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\modules\user\models\LoginForm */
 
-$this->title = 'Login';
+$this->title = 'Войти';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-default-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="h3-title"><?= Html::encode($this->title) ?></h3><br>
 
-    <p>Please fill out the following fields to login:</p>
+    <h6 class="h6-title">Пожалуйста введите Имя пользователя и Пароль:</h6><br>
 
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-            <?= $form->field($model, 'username') ?>
-            <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <?= $form->field($model, 'username')->label('Имя пользователя'); ?>
+            <?= $form->field($model, 'password')->passwordInput()->label('Пароль'); ?>
+            <?= $form->field($model, 'rememberMe')->checkbox()->label('Запомнить меня'); ?>
             <div style="color:#999;margin:1em 0">
-                If you forgot your password you can <?= Html::a('reset it', ['password-reset-request']) ?>.
+                Если Вы забыли свой пароль Вы можете  <?= Html::a('сбросить пароль', ['password-reset-request']) ?>.
             </div>
             <div class="form-group">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
