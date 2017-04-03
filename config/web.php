@@ -45,8 +45,8 @@ $config = [
             //'loginUrl' => ['site/login'],
         ],
         'authManager' => [
-            'class' => 'yii\rbac\PhpManager',
-            'defaultRoles' => ['admin', 'BRAND', 'TALENT'], // Здесь нет роли "guest", т.к. эта роль виртуальная
+            'class' => 'app\components\AuthManager',
+            'defaultRoles' => ['admin', 'BRAND', 'TALENT', 'guest'], // Здесь нет роли "guest", т.к. эта роль виртуальная
                                                             // и не присутствует в модели UserExt
         ],
         'errorHandler' => [

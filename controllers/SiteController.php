@@ -39,17 +39,7 @@ class SiteController extends Controller
         ];
     }
 
-    public function beforeAction($action)
-    {
-        if (parent::beforeAction($action)) {
-            if (!\Yii::$app->user->can($action->id)) {
-                throw new ForbiddenHttpException('Access denied');
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
     /**
      * @inheritdoc
@@ -97,17 +87,20 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
+//    /**
+//     * Logout action.
+//     *
+//     * @return string
+//     */
+//    public function actionLogout()
+//    {
+//        if (!\Yii::$app->user->can('logout')) {
+//            throw new ForbiddenHttpException('Access denied');
+//        }
+//        Yii::$app->user->logout();
+//
+//        return $this->goHome();
+//    }
 
     /**
      * Displays contact page.

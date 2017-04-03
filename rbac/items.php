@@ -24,6 +24,9 @@ return [
     'delete' => [
         'type' => 2,
     ],
+    'ad-view' => [
+        'type' => 2,
+    ],
     'guest' => [
         'type' => 1,
         'ruleName' => 'userGroup',
@@ -57,6 +60,7 @@ return [
         'ruleName' => 'userGroup',
         'children' => [
             'delete',
+            'ad-view',
             'TALENT',
             'BRAND',
         ],

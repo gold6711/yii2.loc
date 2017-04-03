@@ -5,6 +5,7 @@ use Yii;
 use yii\rbac\Rule;
 
 class UserGroupRule extends Rule
+//правило на проверку принадлежности к роли у пользователя
 {
     public $name = 'userGroup';
 
@@ -12,6 +13,7 @@ class UserGroupRule extends Rule
     {
         if (!\Yii::$app->user->isGuest) {
             $group = \Yii::$app->user->identity->group;
+            //debug($item);exit;
             if ($item->name === 'admin') {
                 return $group == 'admin';
             } elseif ($item->name === 'BRAND') {

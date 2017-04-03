@@ -26,6 +26,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $group
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -244,4 +245,22 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->email_confirm_token = null;
     }
+
+    /**
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * @param string $group
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+    }
+
+
 }

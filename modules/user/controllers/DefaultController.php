@@ -38,7 +38,7 @@ class DefaultController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -47,7 +47,7 @@ class DefaultController extends Controller
 //    public function beforeAction($action)
 //    {
 //        if (parent::beforeAction($action)) {
-//            debug(\Yii::$app->user->group);exit;
+//            //debug(\Yii::$app->user->group);exit;
 //            if (!\Yii::$app->user->can($action->id)) {
 //                throw new ForbiddenHttpException('Access denied');
 //            }
@@ -84,6 +84,10 @@ class DefaultController extends Controller
 
     public function actionLogout()
     {
+        //debug(Yii::$app->user);exit;
+        if (!\Yii::$app->user->can('logout')) {
+            throw new ForbiddenHttpException('Access denied');
+        }
         Yii::$app->user->logout();
 
         return $this->goHome();

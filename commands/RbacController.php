@@ -9,7 +9,8 @@ class RbacController extends Controller
 {
     public function actionInit()
     {
-        $authManager = \Yii::$app->authManager;
+        $authManager = \Yii::$app->getAuthManager();
+        $authManager->removeAll();
 
         // Create roles
         $guest  = $authManager->createRole('guest');
@@ -26,6 +27,7 @@ class RbacController extends Controller
         $view   = $authManager->createPermission('view');
         $update = $authManager->createPermission('update');
         $delete = $authManager->createPermission('delete');
+        $adview = $authManager->createPermission('ad-view'); // добавлено
 
         // Add permissions in Yii::$app->authManager
         $authManager->add($login);
@@ -36,6 +38,7 @@ class RbacController extends Controller
         $authManager->add($view);
         $authManager->add($update);
         $authManager->add($delete);
+        $authManager->add($adview);  //добавлено
 
 
         // Add rule, based on UserExt->group === $user->group
@@ -75,5 +78,6 @@ class RbacController extends Controller
         $authManager->addChild($admin, $delete);
         $authManager->addChild($admin, $talent);
         $authManager->addChild($admin, $brand);
+        $authManager->addChild($admin, $adview); // добавлено
     }
 }
