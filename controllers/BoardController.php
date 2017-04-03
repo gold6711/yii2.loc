@@ -6,6 +6,7 @@ use app\models\Photo;
 use app\models\Board;
 use Yii;
 use yii\data\Pagination;
+use yii\web\ForbiddenHttpException;
 
 class BoardController extends AppController
 {
@@ -21,6 +22,9 @@ class BoardController extends AppController
 
     public function actionAdView()
     {
+        if (!\Yii::$app->user->can('ad-view')) {
+            throw new ForbiddenHttpException('Access denied');
+        }
         $id = Yii::$app->request->get('id');
         $ad = Board::find()->where(['id' => $id])->one();
         $photos = Photo::find()->where(['id_message' => $id])->all();

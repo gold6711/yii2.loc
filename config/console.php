@@ -14,6 +14,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' => [
+            'class' => 'app\components\AuthManager',
+        ],
         'log' => [
             'targets' => [
                 [

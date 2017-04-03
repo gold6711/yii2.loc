@@ -30,14 +30,8 @@ use app\models\Board;
     </div>
 </section>
 <br>
-<?php $dataProvider = new ActiveDataProvider([
-    'query' => Board::find()->where(['type'=>'p'])->orderBy('date_add DESC'),
-    'pagination' => [
-        'pageSize' => 5,
-    ],
-]);
 
-echo ListView::widget([
+<?php echo ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => '_list',
 

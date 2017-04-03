@@ -1,4 +1,5 @@
 <?php
+use app\modules\user\models\User;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -12,6 +13,11 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Module',
             'layout' => 'admin',
+            //'defaultRoute' => 'default/index',
+        ],
+        'user' => [
+            'class' => 'app\modules\user\Module',
+//            'layout' => 'main',
             //'defaultRoute' => 'default/index',
         ],
         'yii2images' => [
@@ -34,9 +40,14 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\modules\user\models\User',
             'enableAutoLogin' => true,
             //'loginUrl' => ['site/login'],
+        ],
+        'authManager' => [
+            'class' => 'app\components\AuthManager',
+            'defaultRoles' => ['admin', 'BRAND', 'TALENT', 'guest'], // Здесь нет роли "guest", т.к. эта роль виртуальная
+                                                            // и не присутствует в модели UserExt
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -46,15 +57,15 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true, //для реальной отправки письма выставить в false
-//            'transport' => [
-//                'class' => 'Swift_SmtpTransport',
-//                'host' => 'smtp.mail.ru',
-//                'username' => 'gold6711',
-//                'password' => 'pass',
-//                'port' => '465',
-//                'encryption' => 'ssl',
-//            ],
+            'useFileTransport' => false, //для реальной отправки письма выставить в false
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'stefanj955@gmail.com',
+                'password' => 'kolopoid',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -80,6 +91,13 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
+//                'contact' => 'main/contact/index',
+//                '<_a:error>' => 'main/default/<_a>',
+//                '<_a:(login|logout|signup|email-confirm|request-password-reset|password-reset)>' => 'user/default/<_a>',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/<_a>',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/view',
+//                '<_m:[\w\-]+>' => '<_m>/default/index',
+//                '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
             ],
         ],
 
