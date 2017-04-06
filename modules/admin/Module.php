@@ -2,6 +2,7 @@
 
 namespace app\modules\admin;
 use yii\filters\AccessControl;
+use app\modules\admin\rbac\Rbac as AdminRbac;
 /**
  * admin module definition class
  */
@@ -22,14 +23,15 @@ class Module extends \yii\base\Module
         // custom initialization code goes here
     }
 
-    public function behaviors(){
+    public function behaviors()
+    {
         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => [AdminRbac::PERMISSION_ADMIN_PANEL],
                     ],
                 ],
             ],

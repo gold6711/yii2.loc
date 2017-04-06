@@ -13,7 +13,6 @@ class UserGroupRule extends Rule
     {
         if (!\Yii::$app->user->isGuest) {
             $group = \Yii::$app->user->identity->group;
-            //debug($item);exit;
             if ($item->name === 'admin') {
                 return $group == 'admin';
             } elseif ($item->name === 'BRAND') {

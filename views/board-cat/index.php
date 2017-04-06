@@ -1,8 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ListView;
-use yii\data\ActiveDataProvider;
-use app\models\Board;
+
 //$this->title = 'My Yii Application';
 ?>
 

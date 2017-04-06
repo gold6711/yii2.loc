@@ -3,11 +3,12 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use app\components\widgets\Alert;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+use yii\bootstrap\Nav;
+
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -48,16 +49,23 @@ ltAppAsset::register($this);
             </div><!-- End Social Container -->
             <div class="fr top-contact">
                 <ul class="clearfix">
-                    <li class="fl"><i class="fa fa-phone"></i><span class="text">Горячая линия: 111-111-111</span></li>
+                    <li class="fl"><i class="fa fa-phone"></i><span class="text">Горячая линия: 222-111-111</span></li>
                     <li class="fl divider"><span>&#124;</span></li>
-                    <li class="fl"><i class="fa fa-envelope"></i><span class="text">Email: <a href="mailto:your@gmail.com">your@gmail.com</a></span></li>
+                    <li class="fl"><i class="fa fa-envelope"></i><span class="text">Email: <a href="mailto:your@gmail.com"><?= Yii::$app->user->identity->email; ?></a></span></li>
                 </ul>
-            </div><!-- End Top Contact -->
-        </div>
+            </div>
+            <?php if (!Yii::$app->user->isGuest){ ?>
+                <div class="fr top-contact">
+                    <ul class="clearfix">
+                        <li class="fl"><i class="fa fa-phone"></i><span class="text">Добро пожаловать <?= Yii::$app->user->identity->username; ?></span></li>
+                    </ul>
+                </div>
+            <?php }  ?>
+        </div><!-- End Top Contact -->
     </div><!-- End Tob Bar -->
     <header class="alt">
         <div class="container">
-<!--            --><?php //debug(Yii::$app->user->isGuest) ?>
+            <!--            --><?php //debug(Yii::$app->user) ?>
             <div class="logo-container fl clearfix">
                 <a href="/" class="ib">
                     <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
@@ -70,7 +78,11 @@ ltAppAsset::register($this);
                         <a href="/" class="ln-tr">Главная</a>
                     </li>
                     <li class="parent-item haschild">
-                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr">Выйти</a>
+                        <?php if (Yii::$app->user->isGuest){ ?>
+                            <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
+                        <?php } else { ?>
+                            <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr">Выйти</a>
+                        <?php } ?>
                     </li>
                     <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Персонал</a>
@@ -105,26 +117,32 @@ ltAppAsset::register($this);
                             </li>
                         </ul>
                     </li>
-                    <li class="parent-item">
-                        <a href="#" class="ln-tr">Контакты</a>
+                    <li class="sub-item">
+                        <a href="<?= \yii\helpers\Url::to(['/site/contact']) ?>" class="ln-tr">Контакты</a></li>
                     </li>
                     <li class="parent-item login">
-                        <?php if (!Yii::$app->user->isGuest): ?>
-                        <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Выход</span></a></li>
-                        <?php endif; ?>
-                        <?php if (Yii::$app->user->isGuest): ?>
-                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="ln-tr" data-toggle="modal" data-target="#login-modal"><span class="grad-btn">Вход</span></a></li>
-                        <?php endif; ?>
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" ><span class="grad-btn">Регистрация</span></a></li>
+                    </li>
+                    <li class="parent-item login">
+                        <?php if (!Yii::$app->user->isGuest){ ?>
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/logout']) ?>" class="ln-tr" ><span class="grad-btn">Выход</span></a></li>
+                    <?php } else { ?>
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/login']) ?>" class="ln-tr" ><span class="grad-btn">Вход</span></a></li>
+                        <?php }  ?>
                 </ul>
             </nav><!-- End NAV Container -->
+
             <div class="mobile-navigation fr">
                 <a href="#" class="mobile-btn"><span></span></a>
                 <div class="mobile-container"></div>
             </div><!-- end mobile navigation -->
         </div>
     </header><!-- End Main Header Container -->
-
-    <?= $content ?>
+    <br><br>
+    <div class="container">
+        <?= Alert::widget() ?>
+        <?= $content ?>
+    </div>
 
     <footer id="footer">
         <div class="container">

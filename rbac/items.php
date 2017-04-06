@@ -9,7 +9,7 @@ return [
     'error' => [
         'type' => 2,
     ],
-    'signup' => [
+    'sign-up' => [
         'type' => 2,
     ],
     'index' => [
@@ -27,14 +27,19 @@ return [
     'ad-view' => [
         'type' => 2,
     ],
+    'permAdminPanel' => [
+        'type' => 2,
+        'description' => 'Admin panel',
+    ],
     'guest' => [
         'type' => 1,
         'ruleName' => 'userGroup',
+        'description' => 'Гость',
         'children' => [
             'login',
             'logout',
             'error',
-            'signup',
+            'sign-up',
             'index',
             'view',
         ],
@@ -42,6 +47,7 @@ return [
     'BRAND' => [
         'type' => 1,
         'ruleName' => 'userGroup',
+        'description' => 'Brand',
         'children' => [
             'update',
             'guest',
@@ -50,6 +56,7 @@ return [
     'TALENT' => [
         'type' => 1,
         'ruleName' => 'userGroup',
+        'description' => 'TALENT',
         'children' => [
             'update',
             'guest',
@@ -58,11 +65,13 @@ return [
     'admin' => [
         'type' => 1,
         'ruleName' => 'userGroup',
+        'description' => 'Admin',
         'children' => [
             'delete',
-            'ad-view',
             'TALENT',
             'BRAND',
+            'ad-view',
+            'permAdminPanel',
         ],
     ],
 ];

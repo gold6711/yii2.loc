@@ -23,7 +23,10 @@
         "moonlandsoft/bootui-datetimepicker": "*",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "costa-rico/yii2-images": "dev-master"
+        "costa-rico/yii2-images": "dev-master",
+        "kartik-v/yii2-widget-datepicker": "*",
+        "kartik-v/yii2-field-range": "*",
+        "lajax/yii2-translate-manager": "1.*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

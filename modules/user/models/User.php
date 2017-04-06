@@ -34,6 +34,12 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_ACTIVE = 1;
     const STATUS_WAIT = 2;
 
+    const SCENARIO_ADMIN_CREATE = 'adminCreate';
+    const SCENARIO_ADMIN_UPDATE = 'adminUpdate';
+
+    public $newPassword;
+    public $newPasswordRepeat;
+
     /**
      * @inheritdoc
      */
@@ -61,6 +67,8 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'integer'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => array_keys(self::getStatusesArray())],
+
+            ['group', 'string', 'max' => 64],
         ];
     }
 
@@ -73,6 +81,7 @@ class User extends ActiveRecord implements IdentityInterface
             'username' => 'Имя пользователя',
             'email' => 'Email',
             'status' => 'Статус',
+            'group' => 'Роль',  //'group' => Module::t('module', 'USER_ROLE'),
         ];
     }
 
@@ -260,6 +269,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function setGroup($group)
     {
         $this->group = $group;
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios[self::SCENARIO_ADMIN_CREATE] = ['username', 'email', 'status', 'group', 'Password'];
+        $scenarios[self::SCENARIO_ADMIN_UPDATE] = ['username', 'email', 'status', 'group', 'Password'];
+        return $scenarios;
     }
 
 

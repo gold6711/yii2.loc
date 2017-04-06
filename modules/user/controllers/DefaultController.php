@@ -13,7 +13,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use Yii;
 use yii\web\ForbiddenHttpException;
-
+use app\modules\admin\models\UserSearch;
 class DefaultController extends Controller
 {
     public function behaviors()
@@ -36,7 +36,7 @@ class DefaultController extends Controller
 //                ],
 //            ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post', 'get'],
                 ],
@@ -61,7 +61,7 @@ class DefaultController extends Controller
     {
         return [
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
+                'class'           => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
@@ -156,6 +156,16 @@ class DefaultController extends Controller
 
         return $this->render('passwordReset', [
             'model' => $model,
+        ]);
+    }
+
+    public function actionIndex()
+    {
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
         ]);
     }
 }

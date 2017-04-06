@@ -1,6 +1,6 @@
 <?php
 namespace app\commands;
-
+use app\modules\admin\rbac\Rbac as AdminRbac;
 use Yii;
 use yii\console\Controller;
 use \app\rbac\UserGroupRule;
@@ -18,6 +18,7 @@ class RbacController extends Controller
         $talent = $authManager->createRole('TALENT');
         $admin  = $authManager->createRole('admin');
 
+
         // Create simple, based on action{$NAME} permissions
         $login  = $authManager->createPermission('login');
         $logout = $authManager->createPermission('logout');
@@ -28,6 +29,8 @@ class RbacController extends Controller
         $update = $authManager->createPermission('update');
         $delete = $authManager->createPermission('delete');
         $adview = $authManager->createPermission('ad-view'); // добавлено
+        $adminPanel = $authManager->createPermission(AdminRbac::PERMISSION_ADMIN_PANEL);
+        $adminPanel->description = 'Admin panel';
 
         // Add permissions in Yii::$app->authManager
         $authManager->add($login);
@@ -39,6 +42,7 @@ class RbacController extends Controller
         $authManager->add($update);
         $authManager->add($delete);
         $authManager->add($adview);  //добавлено
+        $authManager->add($adminPanel);
 
 
         // Add rule, based on UserExt->group === $user->group
@@ -79,5 +83,6 @@ class RbacController extends Controller
         $authManager->addChild($admin, $talent);
         $authManager->addChild($admin, $brand);
         $authManager->addChild($admin, $adview); // добавлено
+        $authManager->addChild($admin, $adminPanel);
     }
 }

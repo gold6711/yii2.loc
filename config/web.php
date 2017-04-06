@@ -1,5 +1,4 @@
 <?php
-use app\modules\user\models\User;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -29,6 +28,9 @@ $config = [
             'graphicsLibrary' => 'GD', //but really its better to use 'Imagick'
             'placeHolderPath' => '@webroot/upload/store/no-image.png', // get placeholder when image not exists, string will be processed by Yii::getAlias
         ],
+//        'translatemanager' => [
+//            'class' => 'lajax\translatemanager\Module',
+//        ],
     ],
     'components' => [
         'request' => [
@@ -52,6 +54,19 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//        'i18n' => [
+//            'translations' => [
+//                '*' => [
+//                    'class' => 'yii\i18n\DbMessageSource',
+//                    'db' => 'db',
+//                    'sourceLanguage' => 'ru-RU', // Язык разработчика
+//                    'sourceMessageTable' => 'language_source',
+//                    'messageTable' => 'language_translate',
+//                    'cachingDuration' => 86400,
+//                    'enableCaching' => true,
+//                ],
+//            ],
+//        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set

@@ -19,6 +19,58 @@ class AuthManager extends PhpManager
         return [];
     }
 
+    public function getAssignment($roleName, $userId)
+    {
+        if ($userId && $user = $this->getUser($userId)) {
+            if ($user->group == $roleName) {
+                $assignment = new Assignment();
+                $assignment->userId = $userId;
+                $assignment->roleName = $user->group;
+                return $assignment;
+            }
+        }
+        return null;
+    }
+
+    public function getUserIdsByRole($roleName)
+    {
+        return User::find()->where(['group' => $roleName])->select('id')->column();
+    }
+
+    public function assign($role, $userId)
+    {
+        if ($userId && $user = $this->getUser($userId)) {
+            $assignment = new Assignment([
+                'userId' => $userId,
+                'roleName' => $role->name,
+                'createdAt' => time(),
+            ]);
+            $this->setRole($user, $role->name);
+            return $assignment;
+        }
+        return null;
+    }
+
+    public function revoke($role, $userId)
+    {
+        if ($userId && $user = $this->getUser($userId)) {
+            if ($user->group == $role->name) {
+                $this->setRole($user, null);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function revokeAll($userId)
+    {
+        if ($userId && $user = $this->getUser($userId)) {
+            $this->setRole($user, null);
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @param integer $userId
      * @return null|\yii\web\IdentityInterface|User
@@ -31,5 +83,15 @@ class AuthManager extends PhpManager
         } else {
             return User::findOne($userId);
         }
+    }
+
+    /**
+     * @param User $user
+     * @param string $roleName
+     */
+    private function setRole(User $user, $roleName)
+    {
+        $user->group = $roleName;
+        $user->updateAttributes(['group' => $roleName]);
     }
 }
