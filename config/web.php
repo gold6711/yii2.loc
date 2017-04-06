@@ -16,8 +16,7 @@ $config = [
         ],
         'user' => [
             'class' => 'app\modules\user\Module',
-//            'layout' => 'main',
-            //'defaultRoute' => 'default/index',
+
         ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
@@ -28,9 +27,6 @@ $config = [
             'graphicsLibrary' => 'GD', //but really its better to use 'Imagick'
             'placeHolderPath' => '@webroot/upload/store/no-image.png', // get placeholder when image not exists, string will be processed by Yii::getAlias
         ],
-//        'translatemanager' => [
-//            'class' => 'lajax\translatemanager\Module',
-//        ],
     ],
     'components' => [
         'request' => [
@@ -54,19 +50,7 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-//        'i18n' => [
-//            'translations' => [
-//                '*' => [
-//                    'class' => 'yii\i18n\DbMessageSource',
-//                    'db' => 'db',
-//                    'sourceLanguage' => 'ru-RU', // Язык разработчика
-//                    'sourceMessageTable' => 'language_source',
-//                    'messageTable' => 'language_translate',
-//                    'cachingDuration' => 86400,
-//                    'enableCaching' => true,
-//                ],
-//            ],
-//        ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
@@ -106,13 +90,7 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
-//                'contact' => 'main/contact/index',
-//                '<_a:error>' => 'main/default/<_a>',
-//                '<_a:(login|logout|signup|email-confirm|request-password-reset|password-reset)>' => 'user/default/<_a>',
-//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/<_a>',
-//                '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/view',
-//                '<_m:[\w\-]+>' => '<_m>/default/index',
-//                '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
+                'site/login' => 'user/default/login',
             ],
         ],
 

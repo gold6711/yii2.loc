@@ -65,7 +65,6 @@ ltAppAsset::register($this);
     </div><!-- End Tob Bar -->
     <header class="alt">
         <div class="container">
-<!--            --><?php //debug(Yii::$app->user) ?>
             <div class="logo-container fl clearfix">
                 <a href="/" class="ib">
                     <img src="/web/images/logo@2x.png" class="fl" alt="Logo">
@@ -76,13 +75,6 @@ ltAppAsset::register($this);
                 <ul class="clearfix">
                     <li class="parent-item haschild current_page_item">
                         <a href="/" class="ln-tr">Главная</a>
-                    </li>
-                    <li class="parent-item haschild">
-                        <?php if (Yii::$app->user->isGuest){ ?>
-                        <a href="<?= \yii\helpers\Url::to(['/admin']) ?>" class="ln-tr">Войти</a>
-                            <?php } else { ?>
-                            <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" class="ln-tr">Выйти</a>
-                        <?php } ?>
                     </li>
                     <li class="parent-item haschild">
                         <a href="#" class="ln-tr">Персонал</a>
@@ -121,7 +113,7 @@ ltAppAsset::register($this);
                         <a href="<?= \yii\helpers\Url::to(['/site/contact']) ?>" class="ln-tr">Контакты</a></li>
                     </li>
                     <li class="parent-item login">
-                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" ><span class="grad-btn">Регистрация</span></a></li>
+                        <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" ><span class="grad-btn" <?php if (!Yii::$app->user->isGuest){ ?> style="display: none"<?php }  ?>>Регистрация</span></a></li>
                     </li>
                     <li class="parent-item login">
                         <?php if (!Yii::$app->user->isGuest){ ?>

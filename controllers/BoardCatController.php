@@ -5,7 +5,6 @@ use app\models\BoardCat;
 use app\models\Board;
 use yii\data\ActiveDataProvider;
 use Yii;
-//use yii\debug\models\timeline\DataProvider;
 
 class BoardCatController extends AppController
 {
@@ -19,12 +18,7 @@ class BoardCatController extends AppController
         $id = Yii::$app->request->get('id');
         $boards = BoardCat::find()->where(['root_category' => $id])->orderBy('name_cat')->all();
         $catname = BoardCat::find()->where(['id' => $id])->one();
-/*        $dataProvider = new ActiveDataProvider([
-            'query' => Board::find()->where(['root_category' => $id])->orderBy('date_add DESC'),
-            'pagination' => [
-                'pageSize' => 5,
-            ],
-        ]);*/
+
         return $this->render('view', compact('boards', 'catname'));
     }
 
