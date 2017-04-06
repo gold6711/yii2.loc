@@ -13,7 +13,7 @@ class BoardController extends AppController
     public function actionView()
     {
         $id = Yii::$app->request->get('id');
-        $boards = BoardCat::find()->where(['root_category' => $id])->all();
+        $boards = BoardCat::find()->where(['root_category' => $id])->orderBy('name_cat')->all();
         $query = Board::find()->where(['id_category' => $id])->orderBy('date_add DESC');
         $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
         $ads = $query->offset($pages->offset)->limit($pages->limit)->all();

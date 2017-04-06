@@ -17,7 +17,7 @@ class BoardCatController extends AppController
     public function actionView()
     {
         $id = Yii::$app->request->get('id');
-        $boards = BoardCat::find()->where(['root_category' => $id])->all();
+        $boards = BoardCat::find()->where(['root_category' => $id])->orderBy('name_cat')->all();
         $catname = BoardCat::find()->where(['id' => $id])->one();
 /*        $dataProvider = new ActiveDataProvider([
             'query' => Board::find()->where(['root_category' => $id])->orderBy('date_add DESC'),
