@@ -1,8 +1,11 @@
 <?php
-use yii\helpers\Html;
+
+/**
+ * @var $catname \app\models\BoardCat;
+ * @var $boards \app\models\BoardCat;
+ */
 ?>
 <h1>board-cat/view</h1><br>
-<?php //debug($cat)?>
 
 <h3 class="h3-title"><?= ($catname->name_cat); ?></h3><br><br><br>
 
