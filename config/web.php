@@ -47,6 +47,31 @@ $config = [
             'defaultRoles' => ['admin', 'BRAND', 'TALENT', 'guest'], // Здесь нет роли "guest", т.к. эта роль виртуальная
                                                             // и не присутствует в модели UserExt
         ],
+        'authClientCollection' => [
+            'class'   => 'yii\authclient\Collection',
+            'clients' => [
+                'vkontakte' => [
+                    'class'        => 'yii\authclient\clients\VKontakte',
+                    'clientId'     => '5949824',
+                    'clientSecret' => 'a244fsNpZbJVKvxsLvTU',
+                ],
+                'google'    => [
+                    'class'        => 'yii\authclient\clients\Google',
+                    'clientId'     => '770797571927-2qq5sa998bf6ge6lqrsibnbeglr0k7d4.apps.googleusercontent.com',
+                    'clientSecret' => 'cMPzkSiZBQ831sgEqNVN4hct',
+                ],
+//                'twitter' => [
+//                    'class' => 'yii\authclient\clients\Twitter',
+//                    'clientId' => '123',
+//                    'clientSecret' => '321',
+//                ],
+                'facebook'  => [
+                    'class'        => 'yii\authclient\clients\Facebook',
+                    'clientId'     => '1749702392026709',
+                    'clientSecret' => '90417719b84c6c7b6688d995b970f847',
+                ],
+            ],
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

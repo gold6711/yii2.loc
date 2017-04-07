@@ -26,7 +26,7 @@
         "costa-rico/yii2-images": "dev-master",
         "kartik-v/yii2-widget-datepicker": "*",
         "kartik-v/yii2-field-range": "*",
-        "lajax/yii2-translate-manager": "1.*"
+        "yiisoft/yii2-authclient": "~2.1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
