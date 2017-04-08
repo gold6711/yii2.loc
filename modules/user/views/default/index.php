@@ -1,11 +1,9 @@
 <?php
 use yii\grid\GridView;
-use yii\helpers\Html;
 use yii\grid\ActionColumn;
 use app\modules\user\models\User;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
-use yii\data\DataProviderInterface;
 use app\components\widgets\LinkColumn;
 use app\components\widgets\SetColumn;
 use app\components\widgets\RoleColumn;

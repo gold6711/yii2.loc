@@ -37,12 +37,8 @@ ltAppAsset::register($this);
             <div class="fl top-social-icons">
                 <ul class="clearfix">
                     <li><a href="#" class="fb-icon ln-tr"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" class="tw-icon ln-tr"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#" class="gp-icon ln-tr"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#" class="pn-icon ln-tr"><i class="fa fa-pinterest"></i></a></li>
                     <li><a href="#" class="vm-icon ln-tr"><i class="fa fa-vimeo-square"></i></a></li>
-                    <li><a href="#" class="in-icon ln-tr"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" class="yt-icon ln-tr"><i class="fa fa-dribbble"></i></a></li>
                     <li><a href="#" class="yt-icon ln-tr"><i class="fa fa-youtube-play"></i></a></li>
                     <li><a href="#" class="rss-icon ln-tr"><i class="fa fa-rss"></i></a></li>
                 </ul>
@@ -75,22 +71,6 @@ ltAppAsset::register($this);
                 <ul class="clearfix">
                     <li class="parent-item haschild current_page_item">
                         <a href="/" class="ln-tr">Главная</a>
-                    </li>
-                    <li class="parent-item haschild">
-                        <a href="#" class="ln-tr">Персонал</a>
-                        <ul class="submenu">
-                            <li class="sub-item"><a href="#" class="ln-tr">Агенты</a></li>
-                        </ul>
-                    </li>
-                    <li class="parent-item haschild">
-                        <a href="#" class="ln-tr">Информация</a>
-                        <ul class="submenu">
-                            <li class="sub-item">
-                                <a href="#" class="ln-tr">Проекты</a>
-                            </li>
-                            <li class="sub-item"><a href="#" class="ln-tr">Описание проекта</a></li>
-                            <li class="sub-item"><a href="#" class="ln-tr">Фото</a></li>
-                        </ul>
                     </li>
                     <li class="parent-item">
                         <a href="#" class="ln-tr">О нас</a>

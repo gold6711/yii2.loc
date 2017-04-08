@@ -37,8 +37,8 @@ class User extends ActiveRecord implements IdentityInterface
     const SCENARIO_ADMIN_CREATE = 'adminCreate';
     const SCENARIO_ADMIN_UPDATE = 'adminUpdate';
 
-    public $newPassword;
-    public $newPasswordRepeat;
+    public $Password;  //public $newPassword;
+    //public $newPasswordRepeat;
 
     /**
      * @inheritdoc
@@ -139,7 +139,9 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username]);
+        return static::findOne(['username' => $username]);   // ([ ..., 'status' => self::STATUS_ACTIVE]); - можно добавить
+        // для входа через username 'username' => $username
+        // для входа через email 'email' => $username
     }
 
     /**
@@ -150,6 +152,9 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
+//                if (md5($password) == $this->password) {   //   для авторизовавшихся ранее по скрипту JOKER BOARD
+//                return true;
+//            }
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
@@ -174,6 +179,9 @@ class User extends ActiveRecord implements IdentityInterface
         if (parent::beforeSave($insert)) {
             if ($insert) {
                 $this->generateAuthKey();
+            }
+            if ($this->password) {
+                $this->setPassword($this->password);
             }
             return true;
         }

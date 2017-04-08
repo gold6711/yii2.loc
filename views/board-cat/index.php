@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ListView;
+use yii\widgets\LinkPager;
 
 //$this->title = 'My Yii Application';
 ?>
@@ -28,42 +28,31 @@ use yii\widgets\ListView;
         </div>
     </div>
 </section>
-<br>
-
-<?php echo ListView::widget([
-    'dataProvider' => $dataProvider,
-    'itemView' => '_list',
-
-    'options' => [
-        'tag' => 'div',
-        'class' => 'news-list',
-        'id' => 'news-list',
-    ],
-
-    'layout' => "{pager}\n{summary}\n{items}\n{pager}",
-    'summary' => 'Показано {count} из {totalCount}',
-    'summaryOptions' => [
-        'tag' => 'span',
-        'class' => 'my-summary'
-    ],
-
-    'itemOptions' => [
-        'tag' => 'div',
-        'class' => 'news-item',
-    ],
-
-    'emptyText' => '<p>Список пуст</p>',
-    'emptyTextOptions' => [
-        'tag' => 'p'
-    ],
-
-    'pager' => [
-        'firstPageLabel' => 'Первая',
-        'lastPageLabel' => 'Последняя',
-        'nextPageLabel' => 'Следующая',
-        'prevPageLabel' => 'Предыдущая',
+<br><br>
+    <h3 class="h3-title">Последние объяления</h3>
+<br><br>
+<?php if (!empty($ads)): ?>
+<?php foreach ($ads as $ad): ?>
+    <div class="row">
+        <div class="col-sm-8 f-left">
+            <h5 class="h5-title" style="color: green"><a
+                    href="<?=\yii\helpers\Url::to(['board/ad-view', 'id' => $ad->id])?>"><?=$ad->title?></a>
+            </h5>
+        </div>
+    </div>
+    <?=$ad->text?>
+    <br>
+    <h6 class="h6-title" style="color: green">Дата подачи объявления - <?=$ad->date_add?></h6>
+    <br><br><br>
+<?php endforeach; ?>
+<div class="clearfix"></div>
+    <?php
+    echo LinkPager::widget([
+        'pagination' => $pages,
         'maxButtonCount' => 5,
-    ],
-]);
-
-?>
+    ]);
+    ?>
+<?php else : ?>
+    <h3 class="h3-title">Здесь объявлений пока нет</h3>
+    <br><br><br>
+<?php endif; ?>

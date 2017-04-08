@@ -8,6 +8,7 @@ use app\modules\admin\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\modules\admin\models\CreateUserForm;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -63,10 +64,11 @@ class UsersController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $model = new CreateUserForm();
+        if ($model->load(Yii::$app->request->post())) {
+            $user = $model->signup();
+            //debug($model); exit;
+            return $this->redirect(['view', 'id' => $user->id]); //$model
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -83,8 +85,9 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()))
+        {    if (!empty($_POST['User']['password'])) $model->setPassword($_POST['User']['password']);
+         $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

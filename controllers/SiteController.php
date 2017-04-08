@@ -57,26 +57,26 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
-
+//    /**
+//     * Login action.
+//     *
+//     * @return string
+//     */
+//    public function actionLogin()
+//    {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        }
+//        return $this->render('login', [
+//            'model' => $model,
+//        ]);
+//    }
+//
 //    /**
 //     * Logout action.
 //     *
@@ -84,9 +84,6 @@ class SiteController extends Controller
 //     */
 //    public function actionLogout()
 //    {
-//        if (!\Yii::$app->user->can('logout')) {
-//            throw new ForbiddenHttpException('Access denied');
-//        }
 //        Yii::$app->user->logout();
 //
 //        return $this->goHome();

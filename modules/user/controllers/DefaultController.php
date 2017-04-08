@@ -7,7 +7,6 @@ use app\modules\user\models\PasswordResetRequestForm;
 use app\modules\user\models\PasswordResetForm;
 use app\modules\user\models\SignupForm;
 use yii\base\InvalidParamException;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -19,22 +18,6 @@ class DefaultController extends Controller
     public function behaviors()
     {
         return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['logout', 'signup'],
-//                'rules' => [
-//                    [
-//                        'actions' => ['signup'],
-//                        'allow' => true,
-//                        'roles' => ['?'],
-//                    ],
-//                    [
-//                        'actions' => ['logout'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-//                ],
-//            ],
             'verbs' => [
                 'class'   => VerbFilter::className(),
                 'actions' => [
@@ -84,7 +67,6 @@ class DefaultController extends Controller
 
     public function actionLogout()
     {
-        //debug(Yii::$app->user);exit;
         if (!\Yii::$app->user->can('logout')) {
             throw new ForbiddenHttpException('Access denied');
         }

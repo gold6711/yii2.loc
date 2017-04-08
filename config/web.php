@@ -91,6 +91,7 @@ $config = [
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
                 'site/login' => 'user/default/login',
+                'site/logout' => 'user/default/logout',
             ],
         ],
 

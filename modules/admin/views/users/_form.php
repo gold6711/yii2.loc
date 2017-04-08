@@ -18,9 +18,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'newPassword')->passwordInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'newPasswordRepeat')->passwordInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList(User::getStatusesArray()) ?>
 
