@@ -14,6 +14,7 @@ use yii\web\Controller;
 use Yii;
 use yii\web\ForbiddenHttpException;
 use app\modules\admin\models\UserSearch;
+
 class DefaultController extends Controller
 {
     public function behaviors()

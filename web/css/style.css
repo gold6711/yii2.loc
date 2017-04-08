@@ -1985,7 +1985,7 @@ Slider dots/controls
 	font-size: 1.5em;
 }
 
-#signInUsername, #signInPassword, #loginform-username , #loginform-password {
+#loginform-username , #loginform-password {
 	color: black;
 	font-size: 1em;
 }
