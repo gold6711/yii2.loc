@@ -1985,7 +1985,7 @@ Slider dots/controls
 	font-size: 1.5em;
 }
 
-#signInUsername, #signInPassword {
+#signInUsername, #signInPassword, #loginform-username , #loginform-password {
 	color: black;
 	font-size: 1em;
 }
@@ -2034,4 +2034,8 @@ input:not([type]), input[type=date], input[type=datetime-local], input[type=date
 	justify-content: flex-end;
 	padding: 15px;
 	border-top: 1px solid #eceeef;
+}
+
+.form-group .help-block {
+	display: none;
 }

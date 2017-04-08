@@ -39,6 +39,7 @@ class DefaultController extends Controller
                 'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post', 'get'],
+                    'login' => ['post', 'get'],
                 ],
             ],
         ];

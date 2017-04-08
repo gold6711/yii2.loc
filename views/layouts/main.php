@@ -1,7 +1,10 @@
 <?php
 /* @var $this \yii\web\View */
 /* @var $content string */
+/* @var $model app\models\LoginForm */
 
+use app\modules\user\models\LoginForm;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
@@ -42,37 +45,48 @@ ltAppAsset::register($this);
 			<div class="modal-body">
 				<div class="row justify-content-center">
 					<div class="col-6">
-						<h6 class="modal-header"><?='Войти' ?></h6>
-						<form class="" action="<?= Url::to('/site/login') ?>" method="post">
-							<div class="input-field">
-								<label for="signInUsername">Логин</label>
-								<input id="signInUsername" type="text" class="validate" name="LoginForm[username]"
-								       aria-required="true" required>
-							</div>
-							<div class="input-field">
-								<label for="signInPassword">Пароль</label>
-								<input id="signInPassword" type="password" class="validate" name="LoginForm[password]"
-								       aria-required="true" required>
-							</div>
-							<div class="input-field text-center">
-								<button type="submit" id="login" class="form-button btn btn-primary">Войти</button>
-							</div>
-						</form>
+						<h6 class="modal-header"><?='Войти'?></h6>
+
+                        <?php $form = ActiveForm::begin([
+                            'action'      => ['/user/default/login'],
+                            'id'          => 'login-form',
+                            'options'     => ['class' => 'form-horizontal'],
+                            'fieldConfig' => [
+//                                'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                                'labelOptions' => ['class' => 'col-lg-1 hidden'],
+                            ],
+                        ]);
+                        $model = new LoginForm(); ?>
+						<div class="input-field">
+							<label for="signInUsername">Логин</label>
+                            <?=$form->field($model, 'username')->textInput(['autofocus' => true])?>
+						</div>
+
+						<div class="input-field">
+							<label for="signInPassword">Пароль</label>
+                            <?=$form->field($model, 'password')->passwordInput()?>
+						</div>
+
+						<div class="input-field text-center">
+							<button type="submit" id="login" class="form-button btn btn-primary">Войти</button>
+						</div>
+
+                        <?php ActiveForm::end(); ?>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<h6 class=""><?= 'Войти через социальную сеть' ?></h6>
+				<h6 class=""><?='Войти через социальную сеть'?></h6>
 				<!--<div class="row">
                     <a href="http://52.169.46.203/site/auth?authclient=vkontakte"><img src="/img/vkontakte.svg" alt=""></a>
                     <a href=""><img src="/img/google_plus.svg" alt=""></a>
                     <a href="http://52.169.46.203/site/auth?authclient=facebook"><img src="/img/facebook.svg" alt=""></a>
                 </div>-->
-                <?= AuthChoice::widget([
-                    'baseAuthUrl'   => ['site/login'],
-                    'options'   => ['class' => 'row'],
-                    'popupMode' => false,
-                ]) ?>
+                <?=AuthChoice::widget([
+                    'baseAuthUrl' => ['site/login'],
+                    'options'     => ['class' => 'row'],
+                    'popupMode'   => false,
+                ])?>
 			</div>
 		</div>
 	</div>
