@@ -44,7 +44,7 @@ $config = [
         ],
         'authManager' => [
             'class' => 'app\components\AuthManager',
-            'defaultRoles' => ['admin', 'BRAND', 'TALENT', 'guest'], // Здесь нет роли "guest", т.к. эта роль виртуальная
+            'defaultRoles' => ['admin', 'BRAND', 'TALENT'], // Здесь нет роли "guest", т.к. эта роль виртуальная
                                                             // и не присутствует в модели UserExt
         ],
         'errorHandler' => [

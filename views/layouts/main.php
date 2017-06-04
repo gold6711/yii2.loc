@@ -90,7 +90,7 @@ ltAppAsset::register($this);
                         </ul>
                     </li>
                     <li class="sub-item">
-                        <a href="<?= \yii\helpers\Url::to(['/site/contact']) ?>" class="ln-tr">Контакты</a></li>
+                        <a href="<?= \yii\helpers\Url::to(['/admin/users/index']) ?>" class="ln-tr">Админ панель</a>
                     </li>
                     <li class="parent-item login">
                         <a href="<?= \yii\helpers\Url::to(['/user/default/signup']) ?>" class="ln-tr" ><span class="grad-btn" <?php if (!Yii::$app->user->isGuest){ ?> style="display: none"<?php }  ?>>Регистрация</span></a></li>
