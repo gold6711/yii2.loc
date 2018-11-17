@@ -35,6 +35,7 @@ class MenuWidget extends Widget {
 
         $this->data = Category::find()->indexBy('id')->asArray()->all();
         $this->tree = $this->getTree();
+        //debug($this->tree);
         $this->menuHtml = $this->getMenuHtml($this->tree);
         // set cache
         if($this->tpl == 'menu.php'){

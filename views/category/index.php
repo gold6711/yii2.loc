@@ -67,7 +67,6 @@ use yii\helpers\Html;
         </div>
     </div>
 </section><!--/slider-->
-
 <section>
     <div class="container">
         <div class="row">

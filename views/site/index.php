@@ -4,7 +4,6 @@
 
 $this->title = 'My Yii Application';
 ?>
-
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
@@ -69,7 +68,6 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </section><!--/slider-->
-
 <section>
     <div class="container">
         <div class="row">
